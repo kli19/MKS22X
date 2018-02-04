@@ -13,6 +13,10 @@ public class Recursion{
     }
 
     public static void main(String[]args){
-	System.out.println (fact(0));
+	System.out.println (fact(0)); // 1
+	System.out.println (fact(1)); // 1
+	System.out.println (fact(2)); // 2
+	System.out.println (fact(5)); // 120
+	
     }
 }
