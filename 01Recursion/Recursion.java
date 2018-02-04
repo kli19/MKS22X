@@ -1,7 +1,7 @@
 public class Recursion{
 
     //------------------1.1a factorial------------------
-    public static int fact(int n){
+    public int fact(int n){
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
@@ -60,11 +60,13 @@ public class Recursion{
     }
 
     public static void main(String[]args){
+	Recursion x = new Recursion();
+	
 	//testing fact
-	//System.out.println(fact(-1));
-	//System.out.println (fact(0)); // 1
-	//System.out.println (fact(1)); // 1
-	//System.out.println (fact(5)); // 120
+	//System.out.println(x.fact(-1));
+	System.out.println(x.fact(0)); // 1
+	System.out.println(x.fact(1)); // 1
+	System.out.println(x.fact(5)); // 120
 
 	//testing fib
 	//System.out.println(fib(-1));
