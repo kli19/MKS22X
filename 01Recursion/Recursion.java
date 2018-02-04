@@ -1,4 +1,6 @@
 public class Recursion{
+
+    //------------------1.1a factorial------------------
     public static int fact(int n){
 	//error
 	if (n < 0){
@@ -12,6 +14,7 @@ public class Recursion{
 	return fact(n-1) * n;
     }
 
+    //------------------1.1b Fibonacci------------------
     public static int fib(int n){
 	//error
 	if (n < 0){
@@ -26,7 +29,8 @@ public class Recursion{
 	}
 	return fibHelper(n-1, lowerNum, currentSum + lowerNum);
     }
-    
+
+    //------------------1.1c Square Root------------------
     public static double sqrt(double n){
 	//error
 	if (n < 0){
@@ -59,15 +63,15 @@ public class Recursion{
 
 	//testing fib
 	//System.out.println(fib(-1));
-	System.out.println (fib(0)); // 0
-	System.out.println (fib(1)); // 1
-	System.out.println (fib(9)); // 34
+	//System.out.println (fib(0)); // 0
+	//System.out.println (fib(1)); // 1
+	//System.out.println (fib(9)); // 34
 
 	//testing sqrt
 	//System.out.println(sqrt(-1));
 	//System.out.println(sqrt(1)); //1
 	//System.out.println(sqrt(0)); //0
-	System.out.println(sqrt(100)); //10
+	//System.out.println(sqrt(100)); //10
 	
     }
 }
