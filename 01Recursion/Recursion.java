@@ -21,13 +21,8 @@ public class Recursion{
 	}
 	
 	//base case 0
-	if (n == 0){
-	    return 0;
-	}
-
-	//base case 1
-	if (n == 1){
-	    return 1;
+	if (n  <= 1){
+	    return n;
 	}
 	
 	//recursive case
@@ -41,9 +36,9 @@ public class Recursion{
 	//System.out.println (fact(5)); // 120
 
 	//testing fib
-	System.out.println (fib(0)); // 0
-	System.out.println (fib(1)); // 1
-	System.out.println (fib(9)); // 34
+	//System.out.println (fib(0)); // 0
+	//System.out.println (fib(1)); // 1
+	//System.out.println (fib(9)); // 34
 	
     }
 }
