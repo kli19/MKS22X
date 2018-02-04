@@ -35,7 +35,7 @@ public class Recursion{
     }
 
     //------------------1.1c Square Root------------------
-    public static double sqrt(double n){
+    public double sqrt(double n){
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
@@ -48,7 +48,7 @@ public class Recursion{
 	return sqrtHelper (n, 1);
     }
 
-    public static double sqrtHelper(double n, double guess){
+    public double sqrtHelper(double n, double guess){
 	double betterGuess = (n / guess + guess) / 2;
 	
 	//checking percent error
@@ -70,15 +70,15 @@ public class Recursion{
 
 	//testing fib
 	//System.out.println(x.fib(-1));
-	System.out.println(x.fib(0)); // 0
-	System.out.println(x.fib(1)); // 1
-	System.out.println(x.fib(9)); // 34
+	//System.out.println(x.fib(0)); // 0
+	//System.out.println(x.fib(1)); // 1
+	//System.out.println(x.fib(9)); // 34
 
 	//testing sqrt
-	//System.out.println(sqrt(-1));
-	//System.out.println(sqrt(1)); //1
-	//System.out.println(sqrt(0)); //0
-	//System.out.println(sqrt(100)); //10
+	//System.out.println(x.sqrt(-1));
+	//System.out.println(x.sqrt(1)); //1
+	//System.out.println(x.sqrt(0)); //0
+	//System.out.println(x.sqrt(100)); //10
 	
     }
 }
