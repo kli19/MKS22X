@@ -5,11 +5,13 @@ public class Recursion{
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
-	}	
+	}
+	
 	//base case
 	if (n == 0){
 	    return 1;
-	}	
+	}
+	
 	//recursive case
 	return fact(n-1) * n;
     }
@@ -20,6 +22,7 @@ public class Recursion{
 	if (n < 0){
 	    throw new IllegalArgumentException();
 	}
+	
 	return fibHelper(n,0,1);
     }
 
@@ -27,6 +30,7 @@ public class Recursion{
 	if (n == 0){
 	    return currentSum;
 	}
+	
 	return fibHelper(n-1, lowerNum, currentSum + lowerNum);
     }
 
@@ -45,7 +49,8 @@ public class Recursion{
     }
 
     public static double sqrtHelper(double n, double guess){
-	double betterGuess = (n / guess + guess) / 2;	
+	double betterGuess = (n / guess + guess) / 2;
+	
 	//checking percent error
 	if ((Math.abs((n - guess*guess)) / n) < 0.00000001){
 		return guess;
