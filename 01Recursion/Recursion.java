@@ -17,7 +17,7 @@ public class Recursion{
     }
 
     //------------------1.1b Fibonacci------------------
-    public static int fib(int n){
+    public int fib(int n){
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
@@ -26,7 +26,7 @@ public class Recursion{
 	return fibHelper(n,0,1);
     }
 
-    public static int fibHelper(int n, int currentSum, int lowerNum){
+    public int fibHelper(int n, int currentSum, int lowerNum){
 	if (n == 0){
 	    return currentSum;
 	}
@@ -64,15 +64,15 @@ public class Recursion{
 	
 	//testing fact
 	//System.out.println(x.fact(-1));
-	System.out.println(x.fact(0)); // 1
-	System.out.println(x.fact(1)); // 1
-	System.out.println(x.fact(5)); // 120
+	//System.out.println(x.fact(0)); // 1
+	//System.out.println(x.fact(1)); // 1
+	//System.out.println(x.fact(5)); // 120
 
 	//testing fib
-	//System.out.println(fib(-1));
-	//System.out.println (fib(0)); // 0
-	//System.out.println (fib(1)); // 1
-	//System.out.println (fib(9)); // 34
+	//System.out.println(x.fib(-1));
+	System.out.println(x.fib(0)); // 0
+	System.out.println(x.fib(1)); // 1
+	System.out.println(x.fib(9)); // 34
 
 	//testing sqrt
 	//System.out.println(sqrt(-1));
