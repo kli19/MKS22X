@@ -3,13 +3,11 @@ public class Recursion{
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
-	}
-	
+	}	
 	//base case
 	if (n == 0){
 	    return 1;
-	}
-	
+	}	
 	//recursive case
 	return fact(n-1) * n;
     }
@@ -19,28 +17,35 @@ public class Recursion{
 	if (n < 0){
 	    throw new IllegalArgumentException();
 	}
-	
-	//base case 0
+	return fibHelper(n);
+    }
+
+    public static int fibHelper(int n){
 	if (n  <= 1){
 	    return n;
 	}
-	
-	//recursive case
-	return fib(n-1) + fib(n-2);
+	return fibHelper(n-1) + fibHelper(n-2);
     }
-
+    
     public static double sqrt(double n){
 	//error
 	if (n < 0){
 	    throw new IllegalArgumentException();
 	}
 
-	double guess = 1;
-	return guess;
+	if (n == 0){
+	    return 0;
+	}
+
+	return sqrtHelper (n, 1);
     }
 
-    public static double sqrtHelper(){
-	return 0.0;
+    public static double sqrtHelper(double n, double guess){
+	double betterGuess = (n / guess + guess) / 2;
+	if ((Math.abs((n - betterGuess*betterGuess)) / n) < 0.00001){
+		return betterGuess;
+	    }
+	return sqrtHelper(n, betterGuess);	    
     }
 
     public static void main(String[]args){
@@ -51,10 +56,14 @@ public class Recursion{
 	//System.out.println (fact(5)); // 120
 
 	//testing fib
-	System.out.println(fib(-1));
-	//System.out.println (fib(0)); // 0
-	//System.out.println (fib(1)); // 1
-	//System.out.println (fib(9)); // 34
+	//System.out.println(fib(-1));
+	System.out.println (fib(0)); // 0
+	System.out.println (fib(1)); // 1
+	System.out.println (fib(9)); // 34
+
+	//testing sqrt
+	System.out.println(sqrt(1));
+	System.out.println(sqrt(0));
 	
     }
 }
