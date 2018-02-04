@@ -17,14 +17,14 @@ public class Recursion{
 	if (n < 0){
 	    throw new IllegalArgumentException();
 	}
-	return fibHelper(n);
+	return fibHelper(n,0,1);
     }
 
-    public static int fibHelper(int n){
-	if (n  <= 1){
-	    return n;
+    public static int fibHelper(int n, int currentSum, int lowerNum){
+	if (n == 0){
+	    return currentSum;
 	}
-	return fibHelper(n-1) + fibHelper(n-2);
+	return fibHelper(n-1, lowerNum, currentSum + lowerNum);
     }
     
     public static double sqrt(double n){
@@ -41,12 +41,12 @@ public class Recursion{
     }
 
     public static double sqrtHelper(double n, double guess){
-	double betterGuess = (n / guess + guess) / 2;
-	
+	double betterGuess = (n / guess + guess) / 2;	
 	//checking percent error
-	if ((Math.abs((n - betterGuess*betterGuess)) / n) < 0.00000001){
-		return betterGuess;
+	if ((Math.abs((n - guess*guess)) / n) < 0.00000001){
+		return guess;
 	    }
+	
 	return sqrtHelper(n, betterGuess);	    
     }
 
@@ -64,10 +64,10 @@ public class Recursion{
 	System.out.println (fib(9)); // 34
 
 	//testing sqrt
-	System.out.println(sqrt(-1));
+	//System.out.println(sqrt(-1));
 	//System.out.println(sqrt(1)); //1
 	//System.out.println(sqrt(0)); //0
-	//System.out.println(sqrt(100)); //10
+	System.out.println(sqrt(100)); //10
 	
     }
 }
