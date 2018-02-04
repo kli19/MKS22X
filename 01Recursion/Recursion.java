@@ -42,7 +42,9 @@ public class Recursion{
 
     public static double sqrtHelper(double n, double guess){
 	double betterGuess = (n / guess + guess) / 2;
-	if ((Math.abs((n - betterGuess*betterGuess)) / n) < 0.00001){
+	
+	//checking percent error
+	if ((Math.abs((n - betterGuess*betterGuess)) / n) < 0.00000001){
 		return betterGuess;
 	    }
 	return sqrtHelper(n, betterGuess);	    
@@ -62,8 +64,10 @@ public class Recursion{
 	System.out.println (fib(9)); // 34
 
 	//testing sqrt
-	System.out.println(sqrt(1));
-	System.out.println(sqrt(0));
+	System.out.println(sqrt(-1));
+	//System.out.println(sqrt(1)); //1
+	//System.out.println(sqrt(0)); //0
+	//System.out.println(sqrt(100)); //10
 	
     }
 }
