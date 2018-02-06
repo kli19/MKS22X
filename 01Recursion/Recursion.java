@@ -59,6 +59,21 @@ public class Recursion{
 	return sqrtHelper(n, betterGuess);	    
     }
 
+     public boolean isPossibleSum(int n, int target){
+	if (n < 0){
+	    throw new IllegalArgumentException();
+	}
+	return sumHelper(n,target, 0);
+    }
+
+    public boolean sumHelper(int n, int target, int partialSum){
+	if (n == 0){
+	    return partialSum == target;
+	}
+
+	return sumHelper(n-1, target, partialSum + n) || sumHelper(n-1, target, partialSum);
+    }
+
     public static void main(String[]args){
 	Recursion x = new Recursion();
 	
@@ -79,6 +94,11 @@ public class Recursion{
 	//System.out.println(x.sqrt(1)); //1
 	//System.out.println(x.sqrt(0)); //0
 	//System.out.println(x.sqrt(100)); //10
+
+	//System.out.println(x.isPossibleSum(0, 2)); // false
+	//System.out.println(x.isPossibleSum(1, 1)); // true
+	//System.out.println(x.isPossibleSum(5, 12)); // true
+	//System.out.println(x.isPossibleSum(5, 100)); // false
 	
     }
 }
