@@ -8,12 +8,20 @@ public class QueenBoard{
     private boolean addQueen(int r, int c){
 	if (board[r][c] == 0){
 	    board[r][c] = -1;
+
+	    for (int i = c + 1; c < board[r].length; c++){
+		board[r][i] += 1;
+	    }
+	    
 	    return true;
 	}
 	return false;
     }
 
     private boolean removeQueen(int r, int c){
+	if (board[r][c] == -1){
+	    board[r][c] = 0;
+	}
 	return false;
     }
 
@@ -47,6 +55,7 @@ public class QueenBoard{
     public static void main(String[]args){
 	QueenBoard x = new QueenBoard(5);
 	x.addQueen(2,3);
-	System.out.println(x);
+	
+	System.out.println(x.addQueen(2,4));
     }
 }
