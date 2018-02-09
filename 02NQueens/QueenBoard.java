@@ -9,8 +9,12 @@ public class QueenBoard{
 	if (board[r][c] == 0){
 	    board[r][c] = -1;
 
-	    for (int i = c + 1; c < board[r].length; c++){
+	    for (int i = c + 1; i < board.length; i++){
 		board[r][i] += 1;
+	    }
+
+	    for (int i = r+1, j = c+1; i < board.length && j < board.length; i++, j++){
+		board[i][j] += 1;
 	    }
 	    
 	    return true;
@@ -34,7 +38,7 @@ public class QueenBoard{
 		    str += "Q ";
 		}
 		else{
-		    str += "_ ";
+		    str += board[i][j];
 		}
 	    }
 	    str += "\n";
@@ -54,8 +58,9 @@ public class QueenBoard{
 
     public static void main(String[]args){
 	QueenBoard x = new QueenBoard(5);
-	x.addQueen(2,3);
+	x.addQueen(0,1);
 	
 	System.out.println(x.addQueen(2,4));
+	System.out.println(x);
     }
 }
