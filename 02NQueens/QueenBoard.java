@@ -1,10 +1,13 @@
 public class QueenBoard{
     private int[][]board;
+    private int numSolutions;
 
     public QueenBoard(int size){
 	board = new int[size][size];
+	numSolutions = 0;
     }
 
+    //adds a Queen to the given row and column & marks danger areas
     private boolean addQueen(int r, int c){
 	if (board[r][c] == 0){
 	    board[r][c] = -1;
@@ -28,6 +31,7 @@ public class QueenBoard{
 	return false;
     }
 
+    //removes a Queen from the given row and column & removes one mark from danger areas associated with that Queen
     private boolean removeQueen(int r, int c){
 	if (board[r][c] == -1){
 	    board[r][c] = 0;
@@ -40,10 +44,10 @@ public class QueenBoard{
 		board[i][j] -= 1;
 	    }
 
-	     for (int i = r-1, j = c+1; i > 0 && j < board.length; i--, j++){
+	    for (int i = r-1, j = c+1; i > 0 && j < board.length; i--, j++){
 		board[i][j] -= 1;
 	    }
-	    
+	     
 	    return true;
 	}
 	return false;
@@ -71,7 +75,7 @@ public class QueenBoard{
 	for(int i = 0; i < board.length; i++){
 	    for(int j = 0; j < board.length; j++){
 		if(board[i][j] != 0){
-		    throw new IllegalStateException();
+		    throw new IllegalStateException("Board is not empty");
 		}
 	    }
 	}
@@ -82,7 +86,7 @@ public class QueenBoard{
 	if (column >= board.length){
 	    return true;
 	}
-
+	
 	for (int i = 0; i < board.length; i++){
 	    if (addQueen(i, column)){
 		if (solveHelp(column + 1)){
@@ -91,15 +95,11 @@ public class QueenBoard{
 		removeQueen(i, column);
 	    }			    
 	}
-
+      
 	return false;
     }
 
-
-
-
     public int countSolutions(){
-	int num = 0;
 	for (int i = 0; i < board.length; i++){
 	    for (int j = 0; j < board.length; j++){
 		if (board[i][j] != 0){
@@ -107,7 +107,11 @@ public class QueenBoard{
 		}
 	    }
 	}
-	return num;
+	return numSolutions;
+    }
+
+    public void countSolutionsH(){
+	
     }
 
     public static void main(String[]args){
