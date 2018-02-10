@@ -14,17 +14,18 @@ public class QueenBoard{
 
 	    for (int i = c + 1; i < board.length; i++){
 		board[r][i] += 1;
+		//System.out.println(toString());
 	    }
 
 	    for (int i = r+1, j = c+1; i < board.length && j < board.length; i++, j++){
 		board[i][j] += 1;
+		//System.out.println(toString());
 	    }
 
-	    for (int i = r-1, j = c+1; i > 0 && j < board.length; i--, j++){
+	    for (int i = r-1, j = c+1; i >= 0 && j < board.length; i--, j++){
 		board[i][j] += 1;
-	    }
-
-	    
+		//System.out.println(toString());
+	    }	    
 	    
 	    return true;
 	}
@@ -44,7 +45,7 @@ public class QueenBoard{
 		board[i][j] -= 1;
 	    }
 
-	    for (int i = r-1, j = c+1; i > 0 && j < board.length; i--, j++){
+	    for (int i = r-1, j = c+1; i >= 0 && j < board.length; i--, j++){
 		board[i][j] -= 1;
 	    }
 	     
@@ -125,7 +126,7 @@ public class QueenBoard{
     }
 
     public static void main(String[]args){
-	QueenBoard x = new QueenBoard(2);
+	QueenBoard x = new QueenBoard(5);
 	System.out.println(x.countSolutions());
 	System.out.println(x.solve());
         System.out.println(x);
