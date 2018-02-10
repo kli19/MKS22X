@@ -67,7 +67,14 @@ public class QueenBoard{
 	return str;
     }
 
-    public boolean solve(){	
+    public boolean solve(){
+	for(int i = 0; i < board.length; i++){
+	    for(int j = 0; j < board.length; j++){
+		if(board[i][j] != 0){
+		    throw new IllegalStateException();
+		}
+	    }
+	}
 	return solveHelp(0);
     }
 
@@ -78,13 +85,11 @@ public class QueenBoard{
 
 	for (int i = 0; i < board.length; i++){
 	    if (addQueen(i, column)){
-		return solveHelp(column + 1);
-	    }
-
-	    else {
+		if (solveHelp(column + 1)){
+		    return true;
+		}
 		removeQueen(i, column);
-	    }
-			    
+	    }			    
 	}
 
 	return false;
@@ -106,9 +111,7 @@ public class QueenBoard{
     }
 
     public static void main(String[]args){
-	QueenBoard x = new QueenBoard(6);
-	x.addQueen(3,3);
-	x.removeQueen(3,3);
+	QueenBoard x = new QueenBoard(3);
 	System.out.println(x.solve());
 	System.out.println(x);
 	
