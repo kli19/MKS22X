@@ -111,15 +111,15 @@ public class QueenBoard{
 	return numSolutions;
     }
 
-    public void countSolutionsHelp(int col){
-	if(col >= board.length){
+    public void countSolutionsHelp(int column){
+	if(column >= board.length){
 	    numSolutions++;
 	    return;
 	}
 	for(int r = 0;r < board.length;r++){
-	    if(addQueen(r,col)){
-		countSolutionsHelp(col + 1);
-		removeQueen(r,col);
+	    if(addQueen(r,column)){
+		countSolutionsHelp(column + 1);
+		removeQueen(r,column);
 	    }
 	}
     }
