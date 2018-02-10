@@ -56,13 +56,13 @@ public class QueenBoard{
     public String toString(){
 	String str = "";
 
-	for (int i = 0; i < board.length; i ++){
-	    for (int j = 0; j < board[i].length; j++){
-		if (board[i][j] == -1){
+	for (int r = 0; r < board.length; r ++){
+	    for (int c = 0; c < board.length; c++){
+		if (board[r][c] == -1){
 		    str += "Q ";
 		}
 		else{
-		    str += board[i][j] + " ";
+		    str += board[r][c] + " ";
 		}
 	    }
 	    str += "\n";
@@ -72,9 +72,9 @@ public class QueenBoard{
     }
 
     public boolean solve(){
-	for(int i = 0; i < board.length; i++){
-	    for(int j = 0; j < board.length; j++){
-		if(board[i][j] != 0){
+	for(int r = 0; r < board.length; r++){
+	    for(int c = 0; c < board.length; c++){
+		if(board[r][c] != 0){
 		    throw new IllegalStateException("Board is not empty");
 		}
 	    }
@@ -87,12 +87,12 @@ public class QueenBoard{
 	    return true;
 	}
 	
-	for (int i = 0; i < board.length; i++){
-	    if (addQueen(i, column)){
+	for (int r = 0; r < board.length; r++){
+	    if (addQueen(r, column)){
 		if (solveHelp(column + 1)){
 		    return true;
 		}
-		removeQueen(i, column);
+		removeQueen(r, column);
 	    }			    
 	}
       
@@ -100,24 +100,36 @@ public class QueenBoard{
     }
 
     public int countSolutions(){
-	for (int i = 0; i < board.length; i++){
-	    for (int j = 0; j < board.length; j++){
-		if (board[i][j] != 0){
+	for (int r = 0; r < board.length; r++){
+	    for (int c = 0; c < board.length; c++){
+		if (board[r][c] != 0){
 		    throw new IllegalStateException("Board is not empty");
 		}
 	    }
 	}
+	countSolutionsHelp(0);
 	return numSolutions;
     }
 
-    public void countSolutionsH(){
-	
+    public void countSolutionsHelp(int col){
+	if(col >= board.length){
+	    numSolutions++;
+	    return;
+	}
+	for(int r = 0;r < board.length;r++){
+	    if(addQueen(r,col)){
+		countSolutionsHelp(col + 1);
+		removeQueen(r,col);
+	    }
+	}
     }
 
     public static void main(String[]args){
-	QueenBoard x = new QueenBoard(3);
+	QueenBoard x = new QueenBoard(4);
+	System.out.println(x.countSolutions());
 	System.out.println(x.solve());
 	System.out.println(x);
+	
 	
     }
 }
