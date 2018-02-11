@@ -63,7 +63,7 @@ public class QueenBoard{
 		    str += "Q ";
 		}
 		else{
-		    str += board[r][c] + " ";
+		    str += "_" + " ";
 		}
 	    }
 	    str += "\n";
@@ -126,7 +126,7 @@ public class QueenBoard{
     }
 
     public static void main(String[]args){
-	QueenBoard x = new QueenBoard(5);
+	QueenBoard x = new QueenBoard(3);
 	System.out.println(x.countSolutions());
 	System.out.println(x.solve());
         System.out.println(x);
