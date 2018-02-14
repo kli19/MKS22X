@@ -1,6 +1,7 @@
 public class KnightBoard{
 
     private int[][] board;
+    private int numSolutions;
     
     public KnightBoard(int startingRows, int startingCols){
 	if (startingRows < 0 || startingCols < 0){
@@ -8,6 +9,8 @@ public class KnightBoard{
 	}
 	
 	board = new int[startingRows][startingCols];
+
+	numSolutions = 0;
 	
 	//testing toString
 	/*
@@ -36,6 +39,52 @@ public class KnightBoard{
 	    str+= "\n";
 	}
 	return str;
+    }
+
+    public boolean solve(int startingRow, int startingCol){
+	if (startingRow >= board.length || startingRow < 0){
+	    throw new IllegalArgumentException("Row is not valid");
+	}
+
+	if (startingCol >= board[0].length || startingCol < 0){
+	    throw new IllegalArgumentException("Column is not valid");
+	}
+	
+	for (int r = 0; r < board.length; r ++){
+	    for (int c = 0; c < board.length; c++){
+		if (board[r][c] != 0){
+		    throw new IllegalStateException("Board contains non-zero values");
+		}
+	    }
+	}
+	return solveH(startingRow, startingCol, 0);
+    }
+
+    private boolean solveH(int row, int col, int level){
+	return false;
+    }
+
+    public int countSolutions(int startingRow, int startingCol){
+	if (startingRow >= board.length || startingRow < 0){
+	    throw new IllegalArgumentException("Row is not valid");
+	}
+
+	if (startingCol >= board[0].length || startingCol < 0){
+	    throw new IllegalArgumentException("Column is not valid");
+	}
+	
+	for (int r = 0; r < board.length; r ++){
+	    for (int c = 0; c < board.length; c++){
+		if (board[r][c] != 0){
+		    throw new IllegalStateException("Board contains non-zero values");
+		}
+	    }
+	}
+	return countSolutionsH(startingRow, startingCol, 0);
+    }
+
+    public int countSolutionsH(int row, int col, int level){
+	return numSolutions;
     }
 
     public static void main(String[]args){
