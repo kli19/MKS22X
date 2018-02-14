@@ -2,6 +2,8 @@ public class KnightBoard{
 
     private int[][] board;
     private int numSolutions;
+    private final int[] moveKnightRow = {-1, -1, 1, 1, -2, -2, 2, 2};
+    private final int[] moveKnightColumn = {-2, 2, -2, 2, 1, -1, 1, -1};
     
     public KnightBoard(int startingRows, int startingCols){
 	if (startingRows < 0 || startingCols < 0){
@@ -11,6 +13,7 @@ public class KnightBoard{
 	board = new int[startingRows][startingCols];
 
 	numSolutions = 0;
+
 	
 	//testing toString
 	/*
