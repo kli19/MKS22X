@@ -64,22 +64,20 @@ public class KnightBoard{
     }
 
     private boolean solveH(int row, int col, int level){
-	
-	System.out.println(Text.CLEAR_SCREEN);
-	System.out.println(Text.go(1,1));
-	System.out.println(this);
-	Text.wait(200);
-	
-	
-	if (level == board.length*board[0].length){
-	    board[row][col] = level;
+       		
+	if (level > board.length*board[0].length){
+	    System.out.println(Text.CLEAR_SCREEN);
+	    System.out.println(Text.go(1,1));
+	    System.out.println(this);
+	    Text.wait(5);
 	    return true;
 	}
+       
 
 	for (int i[]: displacement){
-	    if (board[row][col] == 0){
-		try{
-		    board[row+i[0]][col+i[1]] = level;
+	    try{
+		if (board[row][col] == 0){
+		    board[row][col] = level;
 		    if(solveH(row+i[0],col+i[1], level + 1)){
 			return true;			
 		    }
@@ -87,10 +85,11 @@ public class KnightBoard{
 		    else{
 			board[row][col] = 0;
 		    }
+		}
 			
-		}catch(Exception e){}
-	    }
+	    }catch(Exception e){}
 	}
+	
 	return false;
     }
 
@@ -119,7 +118,7 @@ public class KnightBoard{
     }
 
     public static void main(String[]args){
-	KnightBoard a = new KnightBoard(3,3);
+	KnightBoard a = new KnightBoard(5,5);
        
 	System.out.println(a.solve(0,0));
     }
