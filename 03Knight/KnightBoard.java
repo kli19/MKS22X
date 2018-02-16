@@ -112,27 +112,25 @@ public class KnightBoard{
     }
 
     public int countSolutionsH(int row, int col, int level){
-
-	int numSolutions = 0;
-	board[row][col] = level;
-	    
+	int numSolutions = 0;	
+	
 	if (level == board.length*board[0].length){
 	    System.out.println(this);
-
 	    return 1; 
-	}
+	}	 
 	
 	for (int i[]: displacement){
 	    try{
 		if (board[row+i[0]][col+i[1]] == 0){
+		   board[row][col] = level;
 		    numSolutions += countSolutionsH(row+i[0],col+i[1], level + 1);
-		    board[row+i[0]][col+i[1]] = 0;		    
+		    board[row][col] = 0;		    
 		}
 					
 	    }catch(Exception e){}
 	   
 	}
-	board[row][col] = 0;
+	
 	
 	return numSolutions  ;
     }
