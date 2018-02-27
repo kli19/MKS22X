@@ -61,22 +61,9 @@ public class Maze{
 		maze[r][c] = str.charAt(charNum);
 		charNum++;
 	    }
-	}
-
-
-	/*
-	String printing = "";
-	for (int r = 0; r < row; r++){
-	    for (int c = 0; c < col; c++){
-	        printing += maze[r][c];
-	    }
-	    printing += "\n";
-	}
-
-	System.out.println(printing);
-	*/
-	
+	}	
     }
+
     
     private void wait(int millis){
          try {
@@ -101,12 +88,23 @@ public class Maze{
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
     */
     public int solve(){
-            //find the location of the S. 
+	//find the location of the S.
+	int row = 0;
+	int col = 0;
+	for (int r = 0; r < maze.length; r++){
+	    for (int c = 0; c < maze[r].length; c++){
+		if (maze[r][c] == 'S'){
+		    row = r;
+		    col = c;
+		}
+	    }
+	}
 
-            //erase the S
+	//erase the S
+	maze[row][col] = '@';
 
-            //and start solving at the location of the s.
-            //return solve(???,???);
+	//and start solving at the location of the s.
+	//return solve(???,???);
 	return 0; //so it compiles
     }
 
