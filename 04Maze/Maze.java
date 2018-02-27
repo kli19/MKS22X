@@ -42,8 +42,19 @@ public class Maze{
 	maze = new char[row][col];
 
 	int charNum = 0;
+	int SCount = 0;
+	int ECount = 0;
 	for (int r = 0; r < row; r++){
 	    for (int c = 0; c < col; c++){
+		if (str.charAt(charNum)=='S'){
+		    SCount++;
+		}
+		if (str.charAt(charNum)=='E'){
+		    ECount++;
+		}
+		if (SCount > 1 || ECount > 1){
+		    throw new IllegalArgumentException("More than 1 S or E");
+		}
 		if (str.charAt(charNum)=='\n'){
 		    charNum++;
 		}
@@ -52,7 +63,7 @@ public class Maze{
 	    }
 	}
 
-	//debugging
+
 	/*
 	String printing = "";
 	for (int r = 0; r < row; r++){
@@ -64,6 +75,7 @@ public class Maze{
 
 	System.out.println(printing);
 	*/
+	
     }
     
     private void wait(int millis){
