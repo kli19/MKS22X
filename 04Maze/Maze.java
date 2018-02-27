@@ -65,6 +65,19 @@ public class Maze{
     }
 
     
+    public String toString(){
+	String str = "";
+	for (int r = 0; r < maze.length; r++){
+	    for (int c = 0; c < maze[r].length; c++){
+	        str += maze[r][c];
+	    }
+	    str += "\n";
+	}
+
+        return str;
+	
+    }
+   
     private void wait(int millis){
          try {
              Thread.sleep(millis);
