@@ -117,8 +117,7 @@ public class Maze{
 	maze[row][col] = '@';
 
 	//and start solving at the location of the s.
-	//return solve(???,???);
-	return 0; //so it compiles
+	return solve(row, col);
     }
 
     /*
