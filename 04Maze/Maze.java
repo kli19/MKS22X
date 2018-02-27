@@ -8,6 +8,7 @@ public class Maze{
 
     private char[][]maze;
     private boolean animate;//false by default
+    private int[][]moves = {{1,0}, {0,1}, {-1, 0}, {0, -1}};
 
     /*Constructor loads a maze text file, and sets animate to false by default.
 
@@ -21,23 +22,22 @@ public class Maze{
 
       3. When the file is not found OR the file is invalid (not exactly 1 E and 1 S) then: print a meaningful error and exit the program.
     */
-    public Maze(String filename){
+    public Maze(String filename) throws FileNotFoundException{
 	animate = false;
 
 	String str = "";
 	int col = 0;
 	int row = 0;
-	try{
-	    File text = new File(filename);
-	    Scanner inputFile = new Scanner(text);
-	    while(inputFile.hasNextLine()){
-		String line = inputFile.nextLine();
-	        str += line + "\n";
-		col = line.length();
-		row++;
-	    }	    
-	}catch (FileNotFoundException e){
+
+	File text = new File(filename);
+	Scanner inputFile = new Scanner(text);
+	while(inputFile.hasNextLine()){
+	    String line = inputFile.nextLine();
+	    str += line + "\n";
+	    col = line.length();
+	    row++;
 	}
+        
 
 	maze = new char[row][col];
 
@@ -52,16 +52,18 @@ public class Maze{
 		if (str.charAt(charNum)=='E'){
 		    ECount++;
 		}
-		if (SCount > 1 || ECount > 1){
-		    throw new IllegalArgumentException("More than 1 S or E");
-		}
+
 		if (str.charAt(charNum)=='\n'){
 		    charNum++;
 		}
 		maze[r][c] = str.charAt(charNum);
 		charNum++;
 	    }
-	}	
+	}
+	if (SCount != 1 || ECount != 1){
+	    System.out.println(SCount);
+	    throw new IllegalArgumentException("Needs exactly 1 S and 1 E");
+	}
     }
 
     
@@ -114,10 +116,10 @@ public class Maze{
 	}
 
 	//erase the S
-	maze[row][col] = '@';
+	maze[row][col] = ' ';
 
 	//and start solving at the location of the s.
-	return solve(row, col);
+	return solve(row, col, 0);
     }
 
     /*
@@ -134,8 +136,8 @@ public class Maze{
             Note: This is not required based on the algorithm, it is just nice visually to see.
         All visited spots that are part of the solution are changed to '@'
     */
-    private int solve(int row, int col){ //you can add more parameters since this is private
-
+    private int solve(int row, int col, int counter){ //you can add more parameters since this is private
+	System.out.println(counter);
         //automatic animation! You are welcome.
         if(animate){
             clearTerminal();
@@ -144,7 +146,21 @@ public class Maze{
         }
 
         //COMPLETE SOLVE
-        return -1; //so it compiles
+	if (maze[row][col] == 'E'){	    
+	    return counter;	    
+	}
+
+	while (counter < maze.length * maze[0].length){
+	  
+	    for (int i[]: moves){
+		if (maze[row+i[0]][col+i[1]] == ' '){
+		    maze[row][col] = '@';
+		    return solve(row + i[0], col + i[1], counter + 1);		    
+		}
+	    }
+	    maze[row][col] = '.';
+	}
+	return -1; 
     }
 
 }
