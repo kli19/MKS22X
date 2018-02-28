@@ -137,12 +137,11 @@ public class Maze{
         All visited spots that are part of the solution are changed to '@'
     */
     private int solve(int row, int col, int counter){ //you can add more parameters since this is private
-	System.out.println(counter);
         //automatic animation! You are welcome.
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(20);
+            wait(200);
         }
 
         //COMPLETE SOLVE
@@ -152,12 +151,15 @@ public class Maze{
 
 	  
 	for (int i[]: moves){
-	    if (maze[row+i[0]][col+i[1]] == ' '){
-		maze[row][col] = '@';
-		return solve(row + i[0], col + i[1], counter + 1);		    
+	    maze[row][col] = '@';
+	    if (maze[row+i[0]][col+i[1]] != '#' && maze[row+i[0]][col+i[1]] != '.' && maze[row+i[0]][col+i[1]] != '@'){
+		return solve(row + i[0], col + i[1], counter + 1);
 	    }
+	    
+	    
+	    maze[row][col] = '.';		
 	}
-	maze[row][col] = '.';
+	
 	
 	return -1; 
     }
