@@ -149,7 +149,6 @@ public class Maze{
 	if (maze[row][col] == 'E'){	    
 	    return counter;	    
 	}
-
 	  
 	for (int i[]: moves){
 	    if (maze[row+i[0]][col+i[1]] == ' '){
