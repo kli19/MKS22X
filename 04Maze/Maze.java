@@ -138,30 +138,29 @@ public class Maze{
     */
     private int solve(int row, int col, int counter){ //you can add more parameters since this is private
         //automatic animation! You are welcome.
-        if(animate){
-	    
+        if(animate){	    
             clearTerminal();
             System.out.println(this);
-            wait(200);
+            wait(100);
         }
 
         //COMPLETE SOLVE
-	if (maze[row][col] == 'E'){	    	    
+	if (maze[row][col] == 'E'){	    
 	    return counter;	    
 	}
 
 	
 	for (int i[]: moves){
-	    maze[row][col] = '@';
-	    
-	    if ((maze[row+i[0]][col+i[1]] == ' ' || maze[row+i[0]][col+i[1]] == 'E' )	&& solve(row + i[0], col + i[1], counter + 1) != -1){
-		return solve(row + i[0], col + i[1], counter + 1);
+	    maze[row][col] = '@';	    
+	    if (maze[row+i[0]][col+i[1]] == ' ' || maze[row+i[0]][col+i[1]] == 'E' ){
+		int ans = solve(row + i[0], col + i[1], counter + 1);
+		if ( ans != -1){
+		    return ans;
+		}
 	    }
-	  	    
-	    maze[row][col] = '.';		
+	    maze[row][col] = '.';
 	}
-	
-	
+		
 	return -1; 
     }
 
