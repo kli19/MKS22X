@@ -61,8 +61,7 @@ public class Maze{
 	    }
 	}
 	if (SCount != 1 || ECount != 1){
-	    System.out.println(SCount);
-	    throw new IllegalArgumentException("Needs exactly 1 S and 1 E");
+	    throw new IllegalArgumentException("Needs exactly one S and one E");
 	}
     }
 
