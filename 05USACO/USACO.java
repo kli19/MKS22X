@@ -87,6 +87,8 @@ public class USACO {
     }
 
     public static void main (String[]args){
-	System.out.println(bronze("bronzeTest1.txt"));
+	System.out.println(bronze("bronzeTest1.txt")); // 342144
+	System.out.println(bronze("bronzeTest2.txt")); // 102762432
+	
     }
 }
