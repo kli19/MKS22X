@@ -24,7 +24,28 @@ public class USACO {
 		int R_s = input.nextInt() -1;
 		int C_s = input.nextInt() -1;
 		int D_s = input.nextInt();
-		stomp(lake, R_s, C_s, D_s);		
+		int[][] cowLocations = new int[][] {
+		    {0,0}, {0,1}, {0,2},
+		    {1,0}, {1,1}, {1,2},
+		    {2,0}, {2,1}, {2,2}
+		};
+
+	
+
+		for (int d = D_s; d > 0; d--){
+		    int max = 0;
+		    for (int i[]: cowLocations){
+			if (lake[R_s + i[0]][C_s + i[1]] > max){
+			    max = lake[R_s + i[0]][C_s + i[1]];
+			}
+		    }
+
+		    for (int i[]: cowLocations){
+			if (lake[R_s + i[0]][C_s + i[1]] ==  max){
+			    lake[R_s + i[0]][C_s + i[1]]--;
+			}
+		    }
+		}		
 	    }
 
 	    int totalDepth = 0;
@@ -44,28 +65,7 @@ public class USACO {
     }
 
     public static void stomp(int[][] lake, int R_s, int C_s, int D_s){
-	int[][] cowLocations = new int[][] {
-	    {0,0}, {0,1}, {0,2},
-	    {1,0}, {1,1}, {1,2},
-	    {2,0}, {2,1}, {2,2}
-	};
 
-	
-
-	for (int d = D_s; d > 0; d--){
-	int max = 0;
-	    for (int i[]: cowLocations){
-		if (lake[R_s + i[0]][C_s + i[1]] > max){
-		    max = lake[R_s + i[0]][C_s + i[1]];
-		}
-	    }
-
-	    for (int i[]: cowLocations){
-		if (lake[R_s + i[0]][C_s + i[1]] ==  max){
-		    lake[R_s + i[0]][C_s + i[1]]--;
-		}
-	    }
-	}
 	//for debugging
 	//System.out.println(toString(lake));
 	
