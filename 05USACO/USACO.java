@@ -191,9 +191,9 @@ public class USACO {
 	return (r < arr.length && r >= 0 && c < arr[0].length && c >= 0 && arr[r][c] != -1);
     }
 
-    public static void main (String[]args){
+    //public static void main (String[]args){
 	//System.out.println(bronze("bronzeTest1.txt")); // 342144
 	//System.out.println(bronze("bronzeTest2.txt")); // 102762432
-        System.out.println(silver("silverTest4.txt"));
-    }
+	// System.out.println(silver("silverTest4.txt"));
+    //}
 }
