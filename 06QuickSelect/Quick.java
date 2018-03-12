@@ -4,6 +4,8 @@ public class Quick{
     public static int partition (int[] data, int start, int end){
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
+
+	
 	return n;
     }
 
@@ -13,11 +15,11 @@ public class Quick{
 	arr[m] = hold;
     }
 
-    public static String toString(int[] arr){
+    public static String toString(int[] data){
 	String str = "{";
-	for (int i = 0; i < arr.length; i ++){
-	    str += arr[i];
-	    if (i < arr.length -1){
+	for (int i = 0; i < data.length; i ++){
+	    str += data[i];
+	    if (i < data.length -1){
 		str += ", ";
 	    }
 	}
