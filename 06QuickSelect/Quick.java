@@ -5,8 +5,11 @@ public class Quick{
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
 
+	swap (data, start, n);
+	int index = start;
 	
-	return n;
+	
+	return index;
     }
 
     public static void swap (int[] arr, int n, int m){
