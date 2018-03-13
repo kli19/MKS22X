@@ -5,11 +5,25 @@ public class Quick{
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
 
+	int pivot = data[n];
 	swap (data, start, n);
-	int index = start;
 	
+	int s = start + 1;
+	int e = end;
 	
-	return index;
+	while (s <= e) {
+	    //System.out.println (pivot);
+	    //System.out.println (toString(data));
+	    if (data[s] < pivot) {
+		s++;
+	    }
+	    else if (data[s] > pivot) {
+		swap(data, s, e);
+		e--;
+	    }
+	}
+	swap(data, start, e);
+	return e;
     }
 
     public static void swap (int[] arr, int n, int m){
@@ -31,8 +45,8 @@ public class Quick{
     }
 
     public static void main(String[]args){
-	int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44,	68};
-	System.out.println(partition(x, 0, 9));
-	System.out.println(toString(x));
+	//int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44,	68};
+	//System.out.println(partition(x, 0, 9));
+	//System.out.println(toString(x));
     }
 }
