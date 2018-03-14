@@ -42,10 +42,10 @@ public class Quick{
 	return data[index]; //so it compiles
     }
 
-    public static void swap (int[] arr, int n, int m){
-	int hold = arr[n];
-	arr[n] = arr[m];
-	arr[m] = hold;
+    public static void swap (int[] data, int n, int m){
+	int hold = data[n];
+	data[n] = data[m];
+	data[m] = hold;
     }
 
     public static String toString(int[] data){
