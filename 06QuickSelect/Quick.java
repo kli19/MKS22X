@@ -61,13 +61,12 @@ public class Quick{
     }
 
     public static void main(String[]args){
+	/*
 	int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
-	//System.out.println(part(x, 0, 9));
 	for (int i = 0; i < x.length; i++){
 	    System.out.println(quickselect(x, i));
 	    System.out.println(toString(x));
 	}
-	
-	
+	*/		
     }
 }
