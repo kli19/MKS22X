@@ -34,7 +34,7 @@ public class Quick{
 	    if (index < k){
 		start = index+1;
 	    }
-	    else if (index > k){
+	    else {
 		end = index-1;
 	    }
 	    index = part(data, start, end);
@@ -74,7 +74,8 @@ public class Quick{
     }
 
     public static void main(String[]args){
-	/*	
+	/*
+	int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
 	for (int i = 0; i < x.length; i++){
 	    System.out.println(quickselect(x, i));
 	    System.out.println(toString(x));
