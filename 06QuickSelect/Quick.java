@@ -42,6 +42,19 @@ public class Quick{
 	return data[index]; //so it compiles
     }
 
+    public static void quicksort(int[]ary){
+	quicksortH(ary, 0, ary.length-1);
+    }
+
+    public static void quicksortH(int[]data, int lo, int hi){	
+	if (lo < hi){
+	    int index = part(data, lo, hi);
+	    quicksortH(data, lo, index-1);
+	    quicksortH(data, index+1, hi);
+	}
+	
+    }
+
     public static void swap (int[] data, int n, int m){
 	int hold = data[n];
 	data[n] = data[m];
@@ -50,7 +63,7 @@ public class Quick{
 
     public static String toString(int[] data){
 	String str = "{";
-	for (int i = 0; i < data.length; i ++){
+	for (int i = 0; i < data.length; i++){
 	    str += data[i];
 	    if (i < data.length -1){
 		str += ", ";
@@ -61,12 +74,17 @@ public class Quick{
     }
 
     public static void main(String[]args){
-	/*
-	int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
+	/*	
 	for (int i = 0; i < x.length; i++){
 	    System.out.println(quickselect(x, i));
 	    System.out.println(toString(x));
 	}
-	*/		
+	*/
+
+	/*
+	int[] y = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
+	quicksort(y);
+	System.out.println(toString(y));
+	*/
     }
 }
