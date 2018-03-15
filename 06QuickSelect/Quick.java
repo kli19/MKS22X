@@ -17,7 +17,7 @@ public class Quick{
 	    if (data[s] < pivot) {
 		s++;
 	    }
-	    else if (data[s] > pivot) {
+	    else {
 		swap(data, s, e);
 		e--;
 	    }
@@ -83,9 +83,10 @@ public class Quick{
 	*/
 
 	/*
-	int[] y = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
+	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	quicksort(y);
 	System.out.println(toString(y));
 	*/
+	
     }
 }
