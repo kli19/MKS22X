@@ -56,7 +56,7 @@ public class Quick{
 	return lt;
     }
 
-    public static int quickselect(int[] data, int k){
+    public static int quickselect0(int[] data, int k){
 	int start = 0;
 	int end = data.length-1;
 	int index = part(data, start, end);
@@ -72,15 +72,15 @@ public class Quick{
 	return data[index]; //so it compiles
     }
 
-    public static void quicksort(int[]ary){
-	quicksortH(ary, 0, ary.length-1);
+    public static void quicksort0(int[]ary){
+	quicksortH0(ary, 0, ary.length-1);
     }
 
-    public static void quicksortH(int[]data, int lo, int hi){	
+    public static void quicksortH0(int[]data, int lo, int hi){	
 	if (lo < hi){
 	    int index = part(data, lo, hi);
-	    quicksortH(data, lo, index-1);
-	    quicksortH(data, index+1, hi);
+	    quicksortH0(data, lo, index-1);
+	    quicksortH0(data, index+1, hi);
 	}
 	
     }
