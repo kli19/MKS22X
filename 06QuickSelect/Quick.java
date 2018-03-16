@@ -7,7 +7,7 @@ public class Quick{
 	int pivot = data[n];
 	swap (data, start, n);
 	
-	int lt = start + 1;
+	int lt = start ;
 	int gt = end;
 	int i = start + 1;
 	
@@ -30,7 +30,7 @@ public class Quick{
 		lt++;
 	    }
 	}
-	swap(data, i, lt);
+	
 	return lt;
     }
 
