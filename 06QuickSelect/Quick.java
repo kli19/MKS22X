@@ -1,43 +1,35 @@
 import java.util.Random;
 public class Quick{
 
-    public static int partition (int[] data, int start, int end){
+    public static int part (int[] data, int start, int end){
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
+
 	int pivot = data[n];
 	swap (data, start, n);
 	
-	int lt = start ;
-	int gt = end;
-	int i = start + 1;
+	int s = start + 1;
+	int e = end;
 	
-	while (i <= gt) {
-	    System.out.println (pivot);
-	    System.out.println (toString(data));
-	    System.out.println("lt: " + lt);
-	    System.out.println("i: " + i);
-	    System.out.println("gt: " + gt);
-	    if (data[i] == pivot) {
-		i++;
+	while (s <= e) {
+	    //System.out.println (pivot);
+	    //System.out.println (toString(data));
+	    if (data[s] < pivot) {
+		s++;
 	    }
-	    else if (data[i] > pivot){
-		swap(data, i, gt);
-		gt--;
-	    }
-	    else{
-		swap(data, i, lt);
-		i++;
-		lt++;
+	    else {
+		swap(data, s, e);
+		e--;
 	    }
 	}
-	
-	return lt;
+	swap(data, start, e);
+	return e;
     }
 
     public static int quickselect(int[] data, int k){
 	int start = 0;
 	int end = data.length-1;
-	int index = partition(data, start, end);
+	int index = part(data, start, end);
 	while (index != k){
 	    if (index < k){
 		start = index+1;
@@ -45,7 +37,7 @@ public class Quick{
 	    else {
 		end = index-1;
 	    }
-	    index = partition(data, start, end);
+	    index = part(data, start, end);
 	}
 	return data[index]; //so it compiles
     }
@@ -56,7 +48,7 @@ public class Quick{
 
     public static void quicksortH(int[]data, int lo, int hi){	
 	if (lo < hi){
-	    int index = partition(data, lo, hi);
+	    int index = part(data, lo, hi);
 	    quicksortH(data, lo, index-1);
 	    quicksortH(data, index+1, hi);
 	}
@@ -95,10 +87,6 @@ public class Quick{
 	quicksort(y);
 	System.out.println(toString(y));
 	*/
-
-	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	partition(y, 0, y.length-1);
-	System.out.println(toString(y));
 	
     }
 }
