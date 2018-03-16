@@ -111,44 +111,51 @@ public class Quick{
 	int start = 0;
 	int end = data.length-1;
 	int[] bounds = partition(data, start, end);
-	int lt = bounds[0];
-	int gt = bounds[1];
 
-	while (lt < k || gt > k){
-	    if (lt < k){
-		start = gt+1;
+		    System.out.println (toString(bounds));
+	    System.out.println("start: " + start);
+	    System.out.println("end: " + end);
+	    System.out.println(toString(data));
+	    System.out.println("=============================\n");
+	
+	while (bounds[0] > k || bounds[1]< k){   
+			      
+	    if (bounds[0] < k){
+		start = bounds[1]+1;
 	    }
-	    if (gt > k) {
-		end = lt-1;
+	    else if (bounds[1] > k) {
+		end = bounds[0]-1;
 	    }
 	    bounds = partition(data, start, end);
-	    lt = bounds[0];
-	    gt = bounds[1];
+
+	    System.out.println (toString(bounds));
+	    System.out.println("start: " + start);
+	    System.out.println("end: " + end);
+	    System.out.println(toString(data));
+	    System.out.println("=============================\n");
 	}
-	return data[lt]; 
+	return data[bounds[0]]; 
     }
     public static void main(String[]args){
 	
 	int[] x = new int[]  {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	for (int i = 0; i < x.length; i++){
-	    System.out.println(quickselect(x, i));
-	    System.out.println(toString(x));
-	}
+	System.out.println(quickselect(x, 8));
+	
 	
 
 	/*
 	  int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	  quicksort(y);
 	  System.out.println(toString(y));
-	*/
+	
 
-	/*
+	
 	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	System.out.println(toString(y));
 	System.out.println(toString(partition(y, 0, y.length-1)));
 	System.out.println(toString(y));
-	*/
 	
+	*/
 	
     }
 }
