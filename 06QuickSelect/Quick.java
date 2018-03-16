@@ -1,6 +1,25 @@
 import java.util.Random;
 public class Quick{
 
+    public static void swap (int[] data, int n, int m){
+	int hold = data[n];
+	data[n] = data[m];
+	data[m] = hold;
+    }
+
+    public static String toString(int[] data){
+	String str = "{";
+	for (int i = 0; i < data.length; i++){
+	    str += data[i];
+	    if (i < data.length -1){
+		str += ", ";
+	    }
+	}
+	str += "}";
+	return str;
+    }
+    
+    //less efficient----------------------------------------------------------------
     public static int part (int[] data, int start, int end){
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
@@ -24,36 +43,6 @@ public class Quick{
 	}
 	swap(data, start, e);
 	return e;
-    }
-
-    public static int partition (int[] data, int start, int end){
-	Random rand = new Random();
-	int n = rand.nextInt(end - start + 1) + start;
-	int pivot = data[n];
-	System.out.println("pivot: " + pivot);
-	swap (data, start, n);
-	
-	int i = start + 1;
-	int lt = start;
-	int gt = end;
-	
-	while (i <= gt) {
-	    //System.out.println (pivot);
-	    //System.out.println (toString(data));
-	    if (data[i] == pivot) {
-		i++;
-	    }
-	    if (data[i] > pivot) {
-		swap(data, i, gt);
-		gt--;
-	    }
-	    if (data[i] < pivot){
-		swap(data, i, lt);
-		i++;
-		lt++;
-	    }
-	}
-	return lt;
     }
 
     public static int quickselect0(int[] data, int k){
@@ -85,43 +74,80 @@ public class Quick{
 	
     }
 
-    public static void swap (int[] data, int n, int m){
-	int hold = data[n];
-	data[n] = data[m];
-	data[m] = hold;
-    }
-
-    public static String toString(int[] data){
-	String str = "{";
-	for (int i = 0; i < data.length; i++){
-	    str += data[i];
-	    if (i < data.length -1){
-		str += ", ";
+    //more efficient-------------------------------------------------------------
+    public static int[] partition (int[] data, int start, int end){
+	Random rand = new Random();
+	int n = rand.nextInt(end - start + 1) + start;
+	int pivot = data[n];
+	//System.out.println("pivot: " + pivot);
+	swap (data, start, n);
+	
+	int i = start + 1;
+	int lt = start;
+	int gt = end;
+	
+	while (i <= gt) {
+	    //System.out.println (pivot);
+	    //System.out.println (toString(data));
+	    if (data[i] == pivot) {
+		i++;
+	    }
+	    if (data[i] > pivot) {
+		swap(data, i, gt);
+		gt--;
+	    }
+	    if (data[i] < pivot){
+		swap(data, i, lt);
+		i++;
+		lt++;
 	    }
 	}
-	str += "}";
-	return str;
+	int[] bounds = new int[]{lt,gt};
+	return bounds;
     }
 
+   
+    public static int quickselect(int[] data, int k){
+	int start = 0;
+	int end = data.length-1;
+	int[] bounds = partition(data, start, end);
+	int lt = bounds[0];
+	int gt = bounds[1];
+
+	while (lt < k || gt > k){
+	    if (lt < k){
+		start = gt+1;
+	    }
+	    if (gt > k) {
+		end = lt-1;
+	    }
+	    bounds = partition(data, start, end);
+	    lt = bounds[0];
+	    gt = bounds[1];
+	}
+	return data[lt]; 
+    }
     public static void main(String[]args){
-	/*
-	int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44};
+	
+	int[] x = new int[]  {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	for (int i = 0; i < x.length; i++){
 	    System.out.println(quickselect(x, i));
 	    System.out.println(toString(x));
 	}
+	
+
+	/*
+	  int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
+	  quicksort(y);
+	  System.out.println(toString(y));
 	*/
 
 	/*
 	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	quicksort(y);
+	System.out.println(toString(y));
+	System.out.println(toString(partition(y, 0, y.length-1)));
 	System.out.println(toString(y));
 	*/
-
-	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	System.out.println(toString(y));
-	System.out.println(partition(y, 0, y.length-1));
-	System.out.println(toString(y));
 	
 	
     }
