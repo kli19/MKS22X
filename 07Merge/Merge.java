@@ -1,6 +1,6 @@
 public class Merge {
 
-    public static void merge(int[] a, int[] b, int[] combined){
+    public static void merge0(int[] a, int[] b, int[] combined){
 	int indexA = 0;
 	int indexB = 0;
 	int indexC = 0;
@@ -18,27 +18,11 @@ public class Merge {
 		combined[indexC] = B;
 		indexB++; indexC++; 		    
 	    }
-	    /*
-	    System.out.println(toString(combined));
-	    System.out.println(toString(a));
-	    System.out.println(toString(b));
-	    System.out.println("indexA: " + indexA);
-	    System.out.println("indexB: " + indexB + "\n\n");
-	    */
 	}
 	
 	if (indexA < a.length){
 	    while (indexC < combined.length){
 		combined[indexC] = a[indexA];
-		/*
-		indexA++;
-		indexC++;
-		System.out.println("a: " + toString(combined));
-		System.out.println(toString(a));
-		System.out.println(toString(b));
-		System.out.println("indexA: " + indexA);
-		System.out.println("indexB: " + indexB + "\n\n");
-		*/
 	    }
 	}
 	
@@ -47,17 +31,15 @@ public class Merge {
 		combined[indexC] = b[indexB];
 		indexB++;
 		indexC++;
-		/*
-		System.out.println(toString(combined));
-		System.out.println(toString(a));
-		System.out.println(toString(b));
-		System.out.println("indexA: " + indexA);
-		System.out.println("indexB: " + indexB + "\n\n");
-		*/
 	    }
 	}
 	
     }
+
+    public static void merge(int[]data, int[]temp, int low, int mid, int midPlus, int hi){
+
+    }
+
 
     public static String toString(int[] data){
 	String str = "{";
@@ -76,7 +58,7 @@ public class Merge {
 	int[] b = new int[]{1,2,4,12};
 
 	int[]combined = new int[a.length+b.length];
-	merge(a,b,combined);
+	merge0(a,b,combined);
 	System.out.println(toString(combined));
 	
     }
