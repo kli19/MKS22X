@@ -36,8 +36,38 @@ public class Merge {
 	
     }
 
-    public static void merge(int[]data, int[]temp, int low, int mid, int midPlus, int hi){
+    public static void merge(int[] data, int[] temp, int lo, int mid, int hi){
+	int index = lo;
+    
+	int low1 = lo;
+	int high1 = mid;
+	int low2 = mid + 1;
+	int high2 = hi;
 
+	while (low1 <= high1 && low2 <= high2){
+	    if(data[low1] <= data[low2]){
+		temp[index] = data[low1];
+		index++;
+		low1++;
+	    }
+	    else if(data[low1] > data[low2]){
+		temp[index] = data[low2];
+		index++;
+		low2++;
+	    }
+	}
+
+	while (low1 <= high1){
+	    temp[index] = data[low1];
+	    index++;
+	    low1++;
+	}
+
+	while (low2 <= high2){
+	    temp[index] = data[low2];
+	    index++;
+	    low2++;
+	}
     }
 
 
@@ -60,6 +90,11 @@ public class Merge {
 	int[]combined = new int[a.length+b.length];
 	merge0(a,b,combined);
 	System.out.println(toString(combined));
+
+	int[] x = new int[] {0,2,4,1,3,5};
+	int[] temp = new int[x.length];
+	merge(x,temp,0,2,5);
+	System.out.println(toString(temp));
 	
     }
 }
