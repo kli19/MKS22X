@@ -6,26 +6,26 @@ public class Merge {
 	int index = lo1;
     
 	while (lo1 <= hi1 && lo2 <= hi2){
-	    if(data[lo1] <= data[lo2]){
-		temp[index] = data[lo1];
+	    if(temp[lo1] <= temp[lo2]){
+		data[index] = temp[lo1];
 		index++;
 		lo1++;
 	    }
-	    else if(data[lo1] > data[lo2]){
-		temp[index] = data[lo2];
+	    else if(temp[lo1] > temp[lo2]){
+		data[index] = temp[lo2];
 		index++;
 		lo2++;
 	    }
 	}
 
 	while (lo1 <= hi1){
-	    temp[index] = data[lo1];
+	    data[index] = temp[lo1];
 	    index++;
 	    lo1++;
 	}
 
 	while (lo2 <= hi2){
-	    temp[index] = data[lo2];
+	    data[index] = temp[lo2];
 	    index++;
 	    lo2++;
 	}
@@ -37,7 +37,15 @@ public class Merge {
     }
 
     public static void msort(int[]data, int[]temp, int lo, int hi){
-
+	if (lo < hi){
+	    for (int i = 0; i < data.length; i++){
+		temp[i] = data[i];
+	    }
+	    int mid = (lo + hi)/2;
+	    msort(temp,data,lo,mid);
+	    msort(temp,data,mid+1,hi);
+	    merge(data,temp, lo, mid, mid+1, hi);
+	}
     }
 
 
@@ -63,12 +71,18 @@ public class Merge {
 	System.out.println(toString(combined));
 	*/
 
-	int[] x = new int[] {0,2,4,7,3,5,7,9};
+	/*
+	int[] x = new int[] {0,2,4,7,3,5,7,9};	
 	int[] temp = new int[x.length];
 	merge(x,temp,0,3,4,x.length-1);
 	System.out.println("--------------------------------------------");
 	System.out.println(toString(x));
 	System.out.println(toString(temp));
+	*/
+
+	int[] data = new int[] {0,3,4,1,2,3,6,8,4,6,9,1,2,3};
+	mergesort(data);
+	System.out.println(toString(data));
 	
     }
 }
