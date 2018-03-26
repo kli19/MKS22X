@@ -119,8 +119,8 @@ public class USACO {
 		else{
 		    move(arr2, arr1);
 		}
-		System.out.println(toString(arr1) + "\n" + toString(arr2));
-		System.out.println("--------------------------------");
+		//System.out.println(toString(arr1) + "\n" + toString(arr2));
+		//System.out.println("--------------------------------");
 	    
 	    
 	    }
