@@ -157,16 +157,16 @@ public class Quick{
 	/*
 	int[] x = new int[]  {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	System.out.println(quickselect(x, 8));
-	*/
 	
-
+	
+       
 	
 	  int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	  quicksort(y);
 	  System.out.println(toString(y));
 	
 
-	  /*
+	  
 	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	System.out.println(toString(y));
 	System.out.println(toString(partition(y, 0, y.length-1)));
