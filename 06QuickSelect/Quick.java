@@ -19,62 +19,6 @@ public class Quick{
 	return str;
     }
     
-    //less efficient----------------------------------------------------------------
-    public static int part (int[] data, int start, int end){
-	Random rand = new Random();
-	int n = rand.nextInt(end - start + 1) + start;
-
-	int pivot = data[n];
-	swap (data, start, n);
-	
-	int s = start + 1;
-	int e = end;
-	
-	while (s <= e) {
-	    //System.out.println (pivot);
-	    //System.out.println (toString(data));
-	    if (data[s] < pivot) {
-		s++;
-	    }
-	    else {
-		swap(data, s, e);
-		e--;
-	    }
-	}
-	swap(data, start, e);
-	return e;
-    }
-
-    public static int quickselect0(int[] data, int k){
-	int start = 0;
-	int end = data.length-1;
-	int index = part(data, start, end);
-	while (index != k){
-	    if (index < k){
-		start = index+1;
-	    }
-	    else {
-		end = index-1;
-	    }
-	    index = part(data, start, end);
-	}
-	return data[index]; //so it compiles
-    }
-
-    public static void quicksort0(int[]ary){
-	quicksortH0(ary, 0, ary.length-1);
-    }
-
-    public static void quicksortH0(int[]data, int lo, int hi){	
-	if (lo < hi){
-	    int index = part(data, lo, hi);
-	    quicksortH0(data, lo, index-1);
-	    quicksortH0(data, index+1, hi);
-	}
-	
-    }
-
-    //more efficient-------------------------------------------------------------
     public static int[] partition (int[] data, int start, int end){
 	Random rand = new Random();
 	int n = rand.nextInt(end - start + 1) + start;
@@ -161,16 +105,16 @@ public class Quick{
 	
        
 	
-	  int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	  quicksort(y);
-	  System.out.println(toString(y));
+	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
+	quicksort(y);
+	System.out.println(toString(y));
 	
 
 	  
-	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
-	System.out.println(toString(y));
-	System.out.println(toString(partition(y, 0, y.length-1)));
-	System.out.println(toString(y));
+	int[] a = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
+	System.out.println(toString(a));
+	System.out.println(toString(partition(a, 0, a.length-1)));
+	System.out.println(toString(a));
 	
 	*/
 	
