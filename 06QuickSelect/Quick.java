@@ -81,7 +81,7 @@ public class Quick{
 	    System.out.println("=============================\n");
 	    */
 	}
-	return data[bounds[0]]; 
+	return data[k]; 
     }
 
 
@@ -101,8 +101,14 @@ public class Quick{
 	/*
 	int[] x = new int[]  {61, 61, 61, 47, 93 ,12, 61, 4, 44};
 	System.out.println(quickselect(x, 8));
-	
-	
+	System.out.println(quickselect(x, 7));
+	System.out.println(quickselect(x, 6));
+	System.out.println(quickselect(x, 5));
+	System.out.println(quickselect(x, 4));
+	System.out.println(quickselect(x, 3));
+	System.out.println(quickselect(x, 2));
+	System.out.println(quickselect(x, 1));
+	System.out.println(quickselect(x, 0));
        
 	
 	int[] y = new int[] {61, 61, 61, 47, 93 ,12, 61, 4, 44};
@@ -115,8 +121,8 @@ public class Quick{
 	System.out.println(toString(a));
 	System.out.println(toString(partition(a, 0, a.length-1)));
 	System.out.println(toString(a));
-	
 	*/
+	
 	
     }
 }
