@@ -33,14 +33,15 @@ public class Quick{
 	while (i <= gt) {
 	    //System.out.println (pivot);
 	    //System.out.println (toString(data));
-	    if (data[i] == pivot) {
-		i++;
-	    }
 	    if (data[i] > pivot) {
 		swap(data, i, gt);
 		gt--;
 	    }
-	    if (data[i] < pivot){
+	    else if (data[i] == pivot) {
+		i++;
+	    }
+
+	    else if (data[i] < pivot){
 		swap(data, i, lt);
 		i++;
 		lt++;
@@ -122,6 +123,7 @@ public class Quick{
 	System.out.println(toString(partition(a, 0, a.length-1)));
 	System.out.println(toString(a));
 	*/
+	
 	
 	
     }
