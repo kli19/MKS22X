@@ -112,7 +112,6 @@ public class MyLinkedList{
 	    first = toAdd;
 	}
 	
-
 	else{
 	    toAdd.setNext(getNode(index));
 	    toAdd.setPrev(toAdd.getNext().getPrev());
@@ -124,6 +123,37 @@ public class MyLinkedList{
 	length++;
     }
 
+    public boolean remove(Integer value){
+	length--;
+	return false;
+    }
+
+    public Integer remove(int index){
+	if(index > length || index < 0){
+	    throw new IndexOutOfBoundsException();      
+	}
+
+	Node current = getNode(index);
+	Integer removed = current.getValue();
+
+	if (index == 0){
+	    first = first.getNext();
+	    first.setPrev(null);
+	}
+
+	else if (index == length -1){
+	    last = last.getPrev();
+	    last.setNext(null);
+	}
+
+	else{
+	    current.getPrev().setNext(current.getNext());
+	    current.getNext().setPrev(current.getPrev());	    
+	}
+	
+	length--;
+	return removed;
+    }
 
 
 
