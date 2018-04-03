@@ -27,7 +27,9 @@ public class MyLinkedList{
 	return true;
     }
 
-
+    public int size(){
+	return length;
+    }
 
 
 
