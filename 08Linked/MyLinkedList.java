@@ -18,6 +18,7 @@ public class MyLinkedList{
 	    if (current != last){
 		str += ", ";
 	    }
+	    current = current.getNext();
 	}
 	str += "]";
 	return str;
