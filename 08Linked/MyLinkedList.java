@@ -9,24 +9,6 @@ public class MyLinkedList{
 	last = null;
 	length = 0;
     }
-
-
-    private Node getNode(int index){
-	if(index >= length || index < 0){
-	    throw new IndexOutOfBoundsException();      
-	}
-
-	Node current = first;
-	for (int i = 0; i < index; i++){
-	    current = current.getNext();
-	}
-	
-	return current;
-    }
-
-    public Integer get(int index){
-	return getNode(index).getValue();
-    }
     
     
     public String toString(){
@@ -73,6 +55,35 @@ public class MyLinkedList{
     public int size(){
 	return length;
     }
+
+    private Node getNode(int index){
+	if(index >= length || index < 0){
+	    throw new IndexOutOfBoundsException();      
+	}
+
+	Node current = first;
+	for (int i = 0; i < index; i++){
+	    current = current.getNext();
+	}
+	
+	return current;
+    }
+
+    public Integer get(int index){
+	return getNode(index).getValue();
+    }
+
+    public Integer set(int index, Integer value){
+	if(index >= length || index < 0){
+	    throw new IndexOutOfBoundsException();      
+	}
+
+	Node current = getNode(index);
+	Integer oldValue = current.getValue();
+	current.setValue(value);
+	return oldValue;
+    }
+    
     
 
 
@@ -80,6 +91,9 @@ public class MyLinkedList{
 
 
 
+    //---------------------
+    // N O D E  C L A S S
+    //---------------------
     
     private class Node{
 	private Integer data;

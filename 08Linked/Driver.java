@@ -6,6 +6,7 @@ public class Driver{
 	list.add(0);
 	list.add(10);
 	list.add(20);
+	list.set(1, 15);
 	System.out.println("length: " + list.size());
 	System.out.println(list);
 	//list.clear();
