@@ -124,6 +124,15 @@ public class MyLinkedList{
     }
 
     public boolean remove(Integer value){
+	Node current = first;
+	for (int i = 0; i < length; i++){
+	    if(current.getValue().equals(value)){
+		remove(i);
+		return true;
+	    }
+	    current = current.getNext();
+	}
+		
 	length--;
 	return false;
     }
@@ -154,7 +163,6 @@ public class MyLinkedList{
 	length--;
 	return removed;
     }
-
 
 
 
