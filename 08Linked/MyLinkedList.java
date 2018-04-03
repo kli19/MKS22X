@@ -95,6 +95,35 @@ public class MyLinkedList{
 	return -1;
     }
 
+    public void add (int index, Integer value){
+	Node toAdd = new Node(value);
+	
+	if(index > length || index < 0){
+	    throw new IndexOutOfBoundsException();      
+	}
+
+	else if (index == length){
+	    add(value);
+	}	
+	
+	else if (index == 0){
+	    first.setPrev(toAdd);
+	    toAdd.setNext(first);
+	    first = toAdd;
+	}
+	
+
+	else{
+	    toAdd.setNext(getNode(index));
+	    toAdd.setPrev(toAdd.getNext().getPrev());
+	    
+	    toAdd.getNext().setPrev(toAdd);
+	    toAdd.getPrev().setNext(toAdd);	    
+	}
+
+	length++;
+    }
+
 
 
 
