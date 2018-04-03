@@ -10,6 +10,19 @@ public class MyLinkedList{
 	length = 0;
     }
 
+    public String toString(){
+	String str = "[";
+	Node current = first;
+	while (current != null){
+	    str += current;
+	    if (current != last){
+		str += ", ";
+	    }
+	}
+	str += "]";
+	return str;
+    }
+
     public boolean add(Integer value){
 	Node toAdd = new Node(value);
 
