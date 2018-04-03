@@ -1,13 +1,17 @@
 public class MyLinkedList{
 
-    private int start;
-    private int end;
+    private Node start;
+    private Node end;
     private int size;
 
-    public MyLinkedList(int start, int end, int size){
+    public MyLinkedList(Node start, Node end, int size){
 	start = this.start;
 	end = this.end;
 	size = 0;
+    }
+
+    public boolean add(Integer n){
+	return true;
     }
 
     private class Node{
@@ -21,11 +25,11 @@ public class MyLinkedList{
 	    prev = null;
 	}
 
-	private Integer get(){
+	private Integer getValue(){
 	    return data;
 	}
 	
-	private boolean set(Integer n){
+	private boolean setValue(Integer n){
 	    data = n;
 	    return true;
 	}
@@ -49,6 +53,7 @@ public class MyLinkedList{
 
 	public String toString(){
 	    String str = "";
+	    str += data;
 	    return str;
 	}
 	
