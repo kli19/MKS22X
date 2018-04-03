@@ -1,26 +1,53 @@
 public class MyLinkedList{
 
-    private Node start;
-    private Node end;
-    private int size;
+    private Node first;
+    private Node last;
+    private int length;
 
-    public MyLinkedList(Node start, Node end, int size){
-	start = this.start;
-	end = this.end;
-	size = 0;
+    public MyLinkedList(){
+	first = null;
+	last = null;
+	length = 0;
     }
 
-    public boolean add(Integer n){
+    public boolean add(Integer value){
+	Node toAdd = new Node(value);
+
+	if (length == 0){
+	    first = toAdd;
+	}
+
+	else{
+	    last.setNext(toAdd);
+	    toAdd.setPrev(last);
+	}
+	
+	last = toAdd;
+	length++;
 	return true;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     private class Node{
 	private Integer data;
 	private Node next;
 	private Node prev;
 
-	private Node(Integer n){
-	    data = n;
+	private Node(Integer value){
+	    data = value;
 	    next = null;
 	    prev = null;
 	}
@@ -29,8 +56,8 @@ public class MyLinkedList{
 	    return data;
 	}
 	
-	private boolean setValue(Integer n){
-	    data = n;
+	private boolean setValue(Integer value){
+	    data = value;
 	    return true;
 	}
 
@@ -47,7 +74,8 @@ public class MyLinkedList{
 	    return prev;
 	}
 	
-	private boolean setPrev(){
+	private boolean setPrev(Node prev){
+	    prev = this.prev;
 	    return true;
 	}
 
