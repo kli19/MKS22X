@@ -84,7 +84,16 @@ public class MyLinkedList{
 	return oldValue;
     }
     
-    
+    public int indexOf(Integer value){
+	Node current = first;
+	for (int i = 0; i < length; i++){
+	    if (current.getValue().equals(value)){
+		return i;
+	    }
+	    current = current.getNext();
+	}
+	return -1;
+    }
 
 
 
