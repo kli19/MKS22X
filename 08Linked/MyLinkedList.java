@@ -15,7 +15,7 @@ public class MyLinkedList{
 	Node current = first;
 	while (current != null){
 	    str += current;
-	    if (current != last){
+	    if (current.getNext() != null){
 		str += ", ";
 	    }
 	    current = current.getNext();
@@ -28,6 +28,19 @@ public class MyLinkedList{
 	first = null;
 	last = null;
 	length = 0;
+    }
+
+    public Integer get(int index){
+	if (index >= length || index < 0){
+	    throw new IndexOutOfBoundsException();
+	}
+
+	Node current = first;
+	for (int i = 0; i < index; i++){
+	    current = current.getNext();
+	}
+
+	return current.getValue();
     }
 
     public boolean add(Integer value){
@@ -78,27 +91,24 @@ public class MyLinkedList{
 	    return data;
 	}
 	
-	private boolean setValue(Integer value){
+	private void setValue(Integer value){
 	    data = value;
-	    return true;
 	}
 
 	private Node getNext(){
 	    return next;
 	}
 	
-	private boolean setNext(Node next){
+	private void setNext(Node next){
 	    next = this.next;
-	    return true;
 	}
 
 	private Node getPrev(){
 	    return prev;
 	}
 	
-	private boolean setPrev(Node prev){
+	private void setPrev(Node prev){
 	    prev = this.prev;
-	    return true;
 	}
 
 	public String toString(){
