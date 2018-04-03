@@ -10,10 +10,30 @@ public class MyLinkedList{
 	length = 0;
     }
 
+
+    private Node getNode(int index){
+	if(index >= length || index < 0){
+	    throw new IndexOutOfBoundsException();      
+	}
+
+	Node current = first;
+	for (int i = 0; i < index; i++){
+	    current = current.getNext();
+	}
+	
+	return current;
+    }
+
+    public Integer get(int index){
+	return getNode(index).getValue();
+    }
+    
+    
     public String toString(){
 	String str = "[";
 	Node current = first;
 	while (current != null){
+	    
 	    str += current;
 	    if (current.getNext() != null){
 		str += ", ";
@@ -24,25 +44,14 @@ public class MyLinkedList{
 	return str;
     }
 
+    
     public void clear(){
 	first = null;
 	last = null;
 	length = 0;
     }
 
-    public Integer get(int index){
-	if (index >= length || index < 0){
-	    throw new IndexOutOfBoundsException();
-	}
-
-	Node current = first;
-	for (int i = 0; i < index; i++){
-	    current = current.getNext();
-	}
-
-	return current.getValue();
-    }
-
+    
     public boolean add(Integer value){
 	Node toAdd = new Node(value);
 
@@ -52,7 +61,8 @@ public class MyLinkedList{
 
 	else{
 	    last.setNext(toAdd);
-	    toAdd.setPrev(last);
+	    toAdd.setPrev(last);	    
+	    
 	}
 	
 	last = toAdd;
@@ -63,12 +73,7 @@ public class MyLinkedList{
     public int size(){
 	return length;
     }
-
-
-
-
-
-
+    
 
 
 
@@ -87,36 +92,22 @@ public class MyLinkedList{
 	    prev = null;
 	}
 
-	private Integer getValue(){
-	    return data;
-	}
-	
-	private void setValue(Integer value){
-	    data = value;
-	}
+	public Integer getValue(){return data;}	
+	public void setValue(Integer value){data = value;}
 
-	private Node getNext(){
-	    return next;
-	}
-	
-	private void setNext(Node next){
-	    next = this.next;
-	}
+	public Node getNext(){return next;}	
+	public void setNext(Node newNext){next = newNext;}
 
-	private Node getPrev(){
-	    return prev;
-	}
+	public Node getPrev(){return prev;}	
+	public void setPrev(Node newPrev){prev = newPrev;}
 	
-	private void setPrev(Node prev){
-	    prev = this.prev;
-	}
 
 	public String toString(){
-	    String str = "";
-	    str += data;
-	    return str;
+	    return data + "";
 	}
 	
     }
+    
+    
 
 }
