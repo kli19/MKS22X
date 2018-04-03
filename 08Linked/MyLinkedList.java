@@ -24,6 +24,12 @@ public class MyLinkedList{
 	return str;
     }
 
+    public void clear(){
+	first = null;
+	last = null;
+	length = 0;
+    }
+
     public boolean add(Integer value){
 	Node toAdd = new Node(value);
 
