@@ -104,6 +104,7 @@ public class MyLinkedList{
 
 	else if (index == length){
 	    add(value);
+	    return;
 	}	
 	
 	else if (index == 0){
@@ -132,8 +133,7 @@ public class MyLinkedList{
 	    }
 	    current = current.getNext();
 	}
-		
-	length--;
+	
 	return false;
     }
 
@@ -143,6 +143,7 @@ public class MyLinkedList{
 	}
 
 	Node current = getNode(index);
+	System.out.println("got node");
 	Integer removed = current.getValue();
 
 	if (index == 0){
