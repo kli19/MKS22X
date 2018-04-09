@@ -200,6 +200,8 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	
     }
 
+    
+
     //---------------------
     // I T E R A T O R
     //---------------------
@@ -220,8 +222,6 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	    else{
 	        throw new IndexOutOfBoundsException();		
 	    }
-	    //System.out.println("\n next: " + next);
-	    //System.out.println("prev: " + next.getPrev() + "\n");
 	}
 
 	public boolean hasNext(){
@@ -234,33 +234,31 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
     }
 
 
-
+    
 	
     public static void main(String[]args){
 	/*
-	MyLinkedListImproved<String> n = new MyLinkedListImproved<>();
-	MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
+	  MyLinkedListImproved<String> n = new MyLinkedListImproved<>();
+	  MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
 	
-	n.add("This");
-	n.add("means");
-	n.add("iterable");
-	n.add("is");
-	n.add("working");
+	  n.add("This");
+	  n.add("means");
+	  n.add("iterable");
+	  n.add("is");
+	  n.add("working");
 	
-	System.out.println(n);
+	  System.out.println(n);
 	
-	for (int i = 0; i<10; i++){
-	   m.add(Integer.valueOf(i)); 
-	}	
-	System.out.println(m);
+	  for (int i = 0; i<10; i++){
+	  m.add(Integer.valueOf(i)); 
+	  }	
+	  System.out.println(m);
 
-	for(String i: n){
-	    System.out.print(i + " ");
-	}
+	  for(String i: n){
+	  System.out.print(i + " ");
+	  }
 	*/
     }
-    
-    
     
 
 }
