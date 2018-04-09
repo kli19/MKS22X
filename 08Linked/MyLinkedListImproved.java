@@ -1,4 +1,5 @@
-public class MyLinkedListImproved<T>{
+import java.util.*;
+public class MyLinkedListImproved<T> implements Iterable<T>{
 
     private Node first;
     private Node last;
@@ -199,15 +200,66 @@ public class MyLinkedListImproved<T>{
 	
     }
 
-public static void main(String[]args){
+    //---------------------
+    // I T E R A T O R
+    //---------------------
+
+    private class MyLinkedListIterator implements Iterator<T>{
+	private Node next;
+	private MyLinkedListIterator(Node start){
+	    next = start;
+	}
+
+	public T next(){
+	    if(hasNext()){		
+		T ans = next.getValue();
+		next = next.getNext();
+		return ans;
+	    }
+
+	    else{
+	        throw new IndexOutOfBoundsException();		
+	    }
+	    //System.out.println("\n next: " + next);
+	    //System.out.println("prev: " + next.getPrev() + "\n");
+	}
+
+	public boolean hasNext(){
+	    return next != null;
+	}
+    }
+
+    public Iterator<T> iterator(){
+	return new MyLinkedListIterator(first);
+    }
+
+
+
+	
+    public static void main(String[]args){
+	/*
 	MyLinkedListImproved<String> n = new MyLinkedListImproved<>();
 	MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
 	
-	n.add("Hello");
+	n.add("This");
+	n.add("means");
+	n.add("iterable");
+	n.add("is");
+	n.add("working");
+	
 	System.out.println(n);
-	m.add(Integer.valueOf(0));
+	
+	for (int i = 0; i<10; i++){
+	   m.add(Integer.valueOf(i)); 
+	}	
 	System.out.println(m);
-}
+
+	for(String i: n){
+	    System.out.print(i + " ");
+	}
+	*/
+    }
+    
     
     
 
