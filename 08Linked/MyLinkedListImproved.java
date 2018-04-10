@@ -171,6 +171,14 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	return removed;
     }
 
+    public int max(){
+	return 0;
+    }
+
+    public int min(){
+	return 0;
+    }
+
 
 
 
