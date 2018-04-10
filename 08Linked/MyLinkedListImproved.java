@@ -172,11 +172,31 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
     }
 
     public int max(){
-	return 0;
+	T max = first.getValue();
+	int maxIndex = 0;
+	int currentIndex = 0;
+	for(T x: this){
+	    if (x.compareTo(max)>0){
+		max = x;
+		maxIndex = currentIndex;
+	    }
+	    currentIndex++;
+	}
+	return maxIndex;
     }
 
     public int min(){
-	return 0;
+	T min = first.getValue();
+	int minIndex = 0;
+	int currentIndex = 0;
+	for(T x: this){
+	    if (x.compareTo(min)<0){
+		min = x;
+		minIndex = currentIndex;
+	    }
+	    currentIndex++;
+	}
+	return minIndex;
     }
 
 
@@ -250,31 +270,36 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
     
 	
     public static void main(String[]args){
-	
+	/*
 	  MyLinkedListImproved<String> n = new MyLinkedListImproved<>();
-	  MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
-	
-	
-	  
+	  MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();       
 	
 	  for (int i = 0; i<10; i++){
 	      m.add(Integer.valueOf(i)); 
-	  }	
+	  }
+
+	  m.add(1,2000);
+	  m.add(5,-2);
 	  System.out.println(m);
+	  System.out.println("min: " + m.min());
+	  System.out.println("max: " + m.max());
+	  
 
 	  n.add("This");
 	  n.add("means");
 	  n.add("iterable");
 	  n.add("is");
 	  n.add("working");
+	  
 	  System.out.println(n);
-
+	  
 	  for(String i: n){
 	      System.out.println(i);
 	      n.remove(i);
 	      System.out.println(n + "\n");
 	      
 	  }
+	  */
 	
     }
     
