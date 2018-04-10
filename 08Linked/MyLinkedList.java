@@ -146,7 +146,13 @@ public class MyLinkedList{
 	System.out.println("got node");
 	Integer removed = current.getValue();
 
-	if (index == 0){
+
+	if (length == 1){
+	    first = null;
+	    last = null;
+	}
+	
+	else if (index == 0){
 	    first = first.getNext();
 	    first.setPrev(null);
 	}
