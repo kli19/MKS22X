@@ -1,5 +1,5 @@
 import java.util.*;
-public class MyLinkedListImproved<T> implements Iterable<T>{
+public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T>{
 
     private Node first;
     private Node last;
@@ -147,7 +147,12 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	System.out.println("got node");
 	T removed = current.getValue();
 
-	if (index == 0){
+	if (length == 1){
+	    first = null;
+	    last = null;
+	}
+	
+	else if (index == 0){
 	    first = first.getNext();
 	    first.setPrev(null);
 	}
@@ -237,27 +242,32 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
     
 	
     public static void main(String[]args){
-	/*
+	
 	  MyLinkedListImproved<String> n = new MyLinkedListImproved<>();
 	  MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
 	
+	
+	  
+	
+	  for (int i = 0; i<10; i++){
+	      m.add(Integer.valueOf(i)); 
+	  }	
+	  System.out.println(m);
+
 	  n.add("This");
 	  n.add("means");
 	  n.add("iterable");
 	  n.add("is");
 	  n.add("working");
-	
 	  System.out.println(n);
-	
-	  for (int i = 0; i<10; i++){
-	  m.add(Integer.valueOf(i)); 
-	  }	
-	  System.out.println(m);
 
 	  for(String i: n){
-	  System.out.print(i + " ");
+	      System.out.println(i);
+	      n.remove(i);
+	      System.out.println(n + "\n");
+	      
 	  }
-	*/
+	
     }
     
 
