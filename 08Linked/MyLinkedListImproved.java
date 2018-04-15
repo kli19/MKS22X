@@ -316,6 +316,7 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	  }
 	*/
 
+	/*
 	MyLinkedListImproved<Integer> n = new MyLinkedListImproved<>();
 	MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
 
@@ -331,6 +332,7 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	for (Integer i: n){
 	    System.out.println(i);
 	}
+	*/
 
 
 	
