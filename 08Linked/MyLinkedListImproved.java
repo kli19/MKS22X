@@ -199,6 +199,21 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	return minIndex;
     }
 
+    public void extend(MyLinkedListImproved<T> other){
+	if (other.size() > 0){
+	    if (length == 0){
+		first = other.first;
+		last = other.last;
+	    }
+	    else{
+		last.setNext(other.first);
+		other.first.setPrev(last);
+		last = other.last;
+	    }
+	    length += other.size();
+	    other.clear();
+	}
+    }
 
 
 
@@ -299,7 +314,25 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	      System.out.println(n + "\n");
 	      
 	  }
-	  */
+	*/
+
+	MyLinkedListImproved<Integer> n = new MyLinkedListImproved<>();
+	MyLinkedListImproved<Integer> m = new MyLinkedListImproved<>();
+
+	for (int i = 0; i < 5; i++){
+	    n.add(i);
+	    m.add(2*i);
+	}
+
+	System.out.println(n + "\n" + m);
+	n.extend(m);
+	System.out.println(n + "\n" + m);
+
+	for (Integer i: n){
+	    System.out.println(i);
+	}
+
+
 	
     }
     
