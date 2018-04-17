@@ -1,6 +1,9 @@
 import java.util.*;
 public class Sort{
-  
+
+    public static void radixsortIncludingNegatives(MyLinkedListImproved<Integer> data){ 
+	radixsort(data);
+    }
     public static void radixsort(MyLinkedListImproved<Integer> data){
 	if (data.size() > 0){
 	    @SuppressWarnings("unchecked")
@@ -33,14 +36,12 @@ public class Sort{
 		
 		for (int j = 0; j < negativeBucket.length; j++){
 		    data.extend(negativeBucket[j]);
-		    //System.out.println(data);
+
 		}
 		for (int j = 0; j < positiveBucket.length; j++){
 		    data.extend(positiveBucket[j]);
-		    //System.out.println(data);
-		}		
-
-		
+		}
+		//System.out.println(data);		
 	    }
 	    
 	}	
@@ -63,5 +64,6 @@ public class Sort{
 	
     }
     */
+    
 
 }   
