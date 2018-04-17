@@ -1,5 +1,5 @@
 import java.util.*;
-public class Sort{
+public class Sorts{
 
     public static void radixsortIncludingNegatives(MyLinkedListImproved<Integer> data){ 
 	radixsort(data);
