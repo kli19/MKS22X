@@ -1,4 +1,4 @@
-public class Eval{
+public class Calculator{
 
     public static double eval(String expression){
 	@SuppressWarnings("unchecked")
@@ -59,6 +59,7 @@ public class Eval{
 	System.out.println(eval("11 3 - 4 + 2.5 *"));
 	System.out.println(eval("8 2 + 99 9 - * 2 + 9 -"));
     }
-    */
+   */
+    
 
 }
