@@ -49,9 +49,6 @@ public class Calculator{
 	}			
     }
 
-    public static boolean isOperator(String s){
-	return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("%");
-    }
 
     /*
     public static void main(String[] args) {
