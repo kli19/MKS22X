@@ -25,24 +25,26 @@ public class MyDeque<E>{
 	return length;
     }
 
-    public void addFirst(E thing){
+    public void addFirst(E thing){		
 	if (thing == null){
 	    throw new NullPointerException();
 	}
-	
-	else if (size() == data.length){
-	    resize();
-	}
 
-	else {
-	    if(first == 0){
-		data[data.length-1] = thing;
-	    }
-	
-	    else{
-		data[first-1] = thing;
-	    }
+	else if (size() == 0){
+	    data[first] = thing;
 	}
+	
+	else{
+	    if (size() == data.length){
+		resize();
+		System.out.println("doubled length");
+	    }
+	    
+	    first = Math.floorMod(first - 1, data.length);
+	    data[first] = thing;
+	}
+	System.out.println(this);
+	length++;
     }
 
     public void addLast(E thing){
@@ -105,26 +107,21 @@ public class MyDeque<E>{
 
     public String toString(){
 	String str = "";
-	int index = 0;
-	for (int i = first; i < data.length; i++){
-	    str += data[i];
-	    index++;
+	int index = first;
+	while(index != last){	    
+	    str += data[index] + ", ";
+	    index = Math.floorMod(index+1, data.length);
 	}
-	
-	if (first > 0){
-	    for (int i = 0; i < last; i++){
-	        str += data[i];
-		index++;
-	    }
-	}
-	return str;
-
-	
+	str += data[index];
+	return str;	
     }
 
     public static void main(String[]args){
-	MyDeque<Integer>  x = new MyDeque<>();
+	MyDeque<Integer>  x = new MyDeque<>(3);
 	x.addFirst(21);
+	x.addFirst(15);
+	x.addFirst(22);
+	x.addFirst(100);
 	System.out.println(x);
     }
  
