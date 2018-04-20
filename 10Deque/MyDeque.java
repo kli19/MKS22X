@@ -88,19 +88,15 @@ public class MyDeque<E>{
     public void resize(){
 	E[] temp = (E[])new Object[size()*2];
 
-	int index = 0;
-	for (int i = first; i < data.length; i++){
-	    temp[index] = data[i];
-	    index++;
+	int index = first;
+	int i = 0;
+	while(index != last){
+	    temp[i] = data[index];
+	    index = Math.floorMod(index+1, data.length);
+	    i++;
 	}
-	
-	if (first > 0){
-	    for (int i = 0; i < last; i++){
-		temp[index] = data[i];
-		index++;
-	    }
-	}
-	
+	temp[i] = data[index];
+	data = temp;
 	first = 0;
 	last = size()-1;   
     }
