@@ -37,13 +37,13 @@ public class MyDeque<E>{
 	else{
 	    if (size() == data.length){
 		resize();
-		System.out.println("doubled length");
+		//System.out.println("doubled length");
 	    }
 	    
 	    first = Math.floorMod(first - 1, data.length);
 	    data[first] = thing;
 	}
-	System.out.println(this);
+	//System.out.println(this);
 	length++;
     }
 
@@ -51,9 +51,21 @@ public class MyDeque<E>{
 	if (thing == null){
 	    throw new NullPointerException();
 	}
-	else if (size() == data.length){
-	    resize();
+	else if (size() == 0){
+	    data[last] = thing;
 	}
+	
+	else{
+	    if (size() == data.length){
+		resize();
+		//System.out.println("doubled length");
+	    }
+	    
+	    last = Math.floorMod(last + 1, data.length);
+	    data[last] = thing;
+	}
+	//System.out.println(this);
+	length++;
     }
 
     public E removeFirst(){
@@ -114,10 +126,9 @@ public class MyDeque<E>{
 
     public static void main(String[]args){
 	MyDeque<Integer>  x = new MyDeque<>(3);
+	x.addLast(25);
 	x.addFirst(21);
-	x.addFirst(15);
-	x.addFirst(22);
-	x.addFirst(100);
+	
 	System.out.println(x);
     }
  
