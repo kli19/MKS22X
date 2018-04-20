@@ -82,7 +82,10 @@ public class MyDeque<E>{
 	if (size() == 0){
 	    throw new NoSuchElementException();
 	}
-	return null;
+	E thing = data[last];
+        last = Math.floorMod(last - 1, data.length);
+	length--;
+	return thing;
     }
 
     public E getFirst(){
@@ -135,11 +138,10 @@ public class MyDeque<E>{
 	x.addLast(30);
 	x.addFirst(19);
 	x.addLast(31);
-	x.removeFirst();
-	x.removeFirst();
-	x.removeFirst();
-	
-	
+	x.removeLast();
+	x.removeLast();
+	x.removeLast();
+		
 	
 	System.out.println(x);
     }
