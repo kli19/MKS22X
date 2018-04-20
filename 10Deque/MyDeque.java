@@ -72,7 +72,7 @@ public class MyDeque<E>{
 	if (size() == 0){
 	    throw new NoSuchElementException();
 	}
-	E thing = data[first];
+	E thing = getFirst();
         first = Math.floorMod(first + 1, data.length);
 	length--;
 	return thing;
@@ -82,7 +82,7 @@ public class MyDeque<E>{
 	if (size() == 0){
 	    throw new NoSuchElementException();
 	}
-	E thing = data[last];
+	E thing = getLast();
         last = Math.floorMod(last - 1, data.length);
 	length--;
 	return thing;
@@ -92,14 +92,14 @@ public class MyDeque<E>{
 	if (size() == 0){
 	    throw new NoSuchElementException();
 	}
-	return null;
+	return data[first];
     }
 
     public E getLast(){
 	if (size() == 0){
 	    throw new NoSuchElementException();
 	}
-	return null;
+	return data[last];
     }
 
     @SuppressWarnings("unchecked")
@@ -141,8 +141,7 @@ public class MyDeque<E>{
 	x.removeLast();
 	x.removeLast();
 	x.removeLast();
-		
-	
+			
 	System.out.println(x);
     }
  
