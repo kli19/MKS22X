@@ -6,7 +6,7 @@ public class ExpressionTree{
     /* The sample tree would be: "( 3 + (2 * 10))"     */
     public String toString(){
         if (isValue()){
-	    return getValue() +"";
+	    return getValue() + "";
 	}
 	return "(" + getLeft().toString() + " " + getOp() + " " + getRight().toString() + ")";
     }
@@ -121,8 +121,9 @@ public class ExpressionTree{
 	return left != null && right != null;
     }
   
-  
+    
     public static void main(String[] args){
+	/*
 	//ugly main sorry!
 	ExpressionTree a = new ExpressionTree(4.0);
 	ExpressionTree b = new ExpressionTree(2.0);
@@ -156,6 +157,7 @@ public class ExpressionTree{
 	System.out.println(ex);
 	System.out.println(ex.toStringPostfix());
 	System.out.println(ex.toStringPrefix());
-	System.out.println(ex.evaluate());//10.5   
+	System.out.println(ex.evaluate());//10.5  
+	*/ 
     }
 }
