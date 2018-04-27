@@ -65,5 +65,13 @@ public class MyHeap{
 	}
 	return str;
     }
+
+    public void resize(){
+	String[] temp = new String[size()*2];
+	for (int i = 0; i < size(); i++){
+	    temp[i] = data[i];
+	}
+	temp = data;	
+    }
    
 }
