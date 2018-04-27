@@ -65,14 +65,10 @@ public class MyHeap{
     }
 
     public String remove(){
-	String s = data[0];
-	//System.out.println("data[0] is:" + data[0]);
-	//System.out.println("data[last] is:" + data[size()-1]);
+	String s = peek();
 	swap(0, size()-1);
-	length--;
-	//System.out.println("after the swap peek: " + peek());
+	length--;	
 	pushDown(0);	
-	
 	return s;
     }
 
@@ -100,6 +96,7 @@ public class MyHeap{
 
 
     public static void main(String[]args){
+	/*
         MyHeap x = new MyHeap();
 	x.add("a");
 	System.out.println(x);
@@ -111,10 +108,10 @@ public class MyHeap{
 	System.out.println(x);
 	x.remove();
 	System.out.println(x);
-	System.out.println("This is where the error is: " + x.remove());
-	System.out.println(x);
 	x.remove();
-	
 	System.out.println(x);
+	x.remove();	
+	System.out.println(x);
+	*/
     }
 }
