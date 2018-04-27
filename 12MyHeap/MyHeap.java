@@ -35,12 +35,22 @@ public class MyHeap{
 	}
     }
 
-    public void pushDownLeft(int index){
-	swap(index, index*2+1);
-    }
+    public void pushDown(int index){
+	int L = index*2+1;
+	int R = index*2+2;
+	if (L < size() && R < size()){
+	    if (isMax && data[index].compareTo(data[L]) < 0 ||
+		!isMax && data[index].compareTo(data[L]) > 0){	    
+		swap(index, L);
+		pushDown(L);
+	    }
 
-    public void pushDownRight(int index){
-	swap(index, index*2+2);
+	    else if (isMax && data[index].compareTo(data[R]) < 0 ||
+		!isMax && data[index].compareTo(data[R]) > 0){	    
+		swap(index, R);
+		pushDown(R);
+	    }
+	}
     }
 
     public void add(String s){
@@ -56,10 +66,13 @@ public class MyHeap{
 
     public String remove(){
 	String s = data[0];
-
+	//System.out.println("data[0] is:" + data[0]);
+	//System.out.println("data[last] is:" + data[size()-1]);
 	swap(0, size()-1);
-	
 	length--;
+	//System.out.println("after the swap peek: " + peek());
+	pushDown(0);	
+	
 	return s;
     }
 
@@ -87,9 +100,21 @@ public class MyHeap{
 
 
     public static void main(String[]args){
-	/*
-	int x = -1 / 2;
+        MyHeap x = new MyHeap();
+	x.add("a");
 	System.out.println(x);
-	*/
+	x.add("b");
+	System.out.println(x);
+	x.add("c");
+	System.out.println(x);
+	x.add("d");
+	System.out.println(x);
+	x.remove();
+	System.out.println(x);
+	System.out.println("This is where the error is: " + x.remove());
+	System.out.println(x);
+	x.remove();
+	
+	System.out.println(x);
     }
 }
