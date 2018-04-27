@@ -14,5 +14,9 @@ public class MyHeap{
 	    isMax = false;
 	}
     }
+
+    public int size(){
+	return length;
+    }
    
 }
