@@ -22,5 +22,15 @@ public class MyHeap{
     public String peek(){
 	return data[0];
     }
+
+    public void add(String s){
+	
+    }
+
+    public void swap (int n, int m){
+	String temp = data[n];
+	data[n] = data[m];
+	data[m] = temp;
+    }
    
 }
