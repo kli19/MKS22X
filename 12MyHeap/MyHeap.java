@@ -27,7 +27,12 @@ public class MyHeap{
     }
 
     public void pushUp(int index){
-	swap(index, (index-1)/2);
+	int parent = (index-1)/2;
+	if (isMax && data[index].compareTo(data[parent]) > 0 ||
+	    !isMax && data[index].compareTo(data[parent]) < 0){	    
+	    swap(index, parent);
+	    pushUp(parent);
+	}
     }
 
     public void pushDownLeft(int index){
@@ -39,6 +44,12 @@ public class MyHeap{
     }
 
     public void add(String s){
+	if (size() == data.length){
+	    resize();
+	}
+
+	data[size()] = s;
+	pushUp(size());
 	
 	length++;
     }
@@ -73,5 +84,12 @@ public class MyHeap{
 	}
 	temp = data;	
     }
-   
+
+
+    public static void main(String[]args){
+	/*
+	int x = -1 / 2;
+	System.out.println(x);
+	*/
+    }
 }
