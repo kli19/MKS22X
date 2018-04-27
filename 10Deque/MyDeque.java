@@ -39,7 +39,7 @@ public class MyDeque<E>{
 		resize();
 		//System.out.println("doubled length");
 	    }
-	    
+
 	    first = Math.floorMod(first - 1, data.length);
 	    data[first] = thing;
 	}
@@ -131,18 +131,68 @@ public class MyDeque<E>{
     }
 
     public static void main(String[]args){
-	MyDeque<Integer>  x = new MyDeque<>(5);
-	x.addLast(25);
-	x.addLast(28);
-	x.addFirst(21);
-	x.addLast(30);
-	x.addFirst(19);
-	x.addLast(31);
-	x.removeLast();
-	x.removeLast();
-	x.removeLast();
+	
+	  MyDeque<Integer>  x = new MyDeque<>(5);
+	  //x.addLast(25);
+	  // x.addLast(28);
+	  x.addFirst(21);
+	  //x.addLast(30);
+	  x.addFirst(19);
+	  //System.out.println(x);
+	  x.addLast(31);
+	  x.removeLast();
+	  x.removeLast();
+	  x.removeLast();
 			
-	System.out.println(x);
+	  
+	
+
+	/*
+	MyDeque<String> a = new MyDeque<>(), a1 = new MyDeque<>();
+	ArrayList<String> b = new ArrayList<>();
+
+	int size = Integer.parseInt(args[0]);
+	for(int i = 0; i < size; i++){
+	    int temp = (int)(Math.random() * 1000);
+	    if(temp % 2 == 0){
+		a.addFirst("" + temp);
+		a1.addFirst("" + temp);
+		b.add(0, "" + temp);
+	    }
+	    else{
+		a.addLast("" + temp);
+		a1.addLast("" + temp);
+		b.add("" + temp);
+	    }
+	}
+
+	int index = 0;
+	boolean hasError = false;
+	String errorEvaluation = "Errors found at these indices: ";
+	for (String x : b){
+	    if (!(x.equals(a.getFirst()))){
+		System.out.println("The getFirst() function is incorrect at index " + index);
+		hasError = true;
+	    }
+	    if (!(x.equals(a.removeFirst()))){
+		System.out.println("There is an error at index " + index);
+		errorEvaluation += index + ", ";
+		hasError = true;
+	    }
+	    index++;
+	}
+
+
+	if(hasError){
+	    errorEvaluation = errorEvaluation.substring(0, errorEvaluation.length() - 2);
+	    System.out.println(errorEvaluation);
+	    System.out.println("MyDeque: " + a1);
+	    System.out.println("Actual Deque: " + b);
+	}
+	else{
+	    System.out.println("Your deque is bug-free!");
+	}
+	*/
     }
  
 }
