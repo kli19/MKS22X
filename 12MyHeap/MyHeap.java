@@ -18,5 +18,9 @@ public class MyHeap{
     public int size(){
 	return length;
     }
+
+    public String peek(){
+	return data[0];
+    }
    
 }
