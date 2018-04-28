@@ -6,7 +6,8 @@ public class Sorts{
 	    data[i] = i;
 	}
 	System.out.println(toString(data));
-	Heapify(data);	
+	Heapify(data);
+	//pushDown(data,4);
 	System.out.println(toString(data));
     }
 
@@ -24,7 +25,9 @@ public class Sorts{
 
     public static void pushDown(int[]data, int index){
 	int L = index*2+1;
+	System.out.println("L: " + L);	
 	int R = index*2+2;
+	System.out.println("R: " + R);
 	if (L < data.length && R < data.length){
 	    if (data[index]<data[L] && data[L] > data[R]){	    
 		swap(data, index, L);
@@ -32,6 +35,19 @@ public class Sorts{
 	    }
 
 	    else if (data[index]<data[R]){	    
+		swap(data, index, R);
+		pushDown(data, R);
+	    }
+	}
+	else if(L < data.length && R >= data.length){
+	    if(data[index]<data[L]){
+		swap(data, index, L);
+		pushDown(data, L);
+	    }
+	}
+
+	else if(R < data.length && L >= data.length){
+	    if (data[index]<data[R]){	    
 		swap(data, index, R);
 		pushDown(data, R);
 	    }
