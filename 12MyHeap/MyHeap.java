@@ -39,14 +39,14 @@ public class MyHeap{
 	int L = index*2+1;
 	int R = index*2+2;
 	if (L < size() && R < size()){
-	    if (isMax && data[index].compareTo(data[L]) < 0 ||
-		!isMax && data[index].compareTo(data[L]) > 0){	    
+	    if (isMax && data[index].compareTo(data[L]) < 0  && data[L].compareTo(data[R]) > 0||
+		!isMax && data[index].compareTo(data[L]) > 0 && data[L].compareTo(data[R]) < 0){	    
 		swap(index, L);
 		pushDown(L);
 	    }
 
-	    else if (isMax && data[index].compareTo(data[R]) < 0 ||
-		!isMax && data[index].compareTo(data[R]) > 0){	    
+	    else if (isMax && data[index].compareTo(data[R]) < 0||
+		!isMax && data[index].compareTo(data[R]) > 0 ){	    
 		swap(index, R);
 		pushDown(R);
 	    }
@@ -96,22 +96,18 @@ public class MyHeap{
 
 
     public static void main(String[]args){
-	/*
+	
         MyHeap x = new MyHeap();
-	x.add("a");
-	System.out.println(x);
-	x.add("b");
-	System.out.println(x);
-	x.add("c");
-	System.out.println(x);
-	x.add("d");
-	System.out.println(x);
-	x.remove();
-	System.out.println(x);
-	x.remove();
-	System.out.println(x);
-	x.remove();	
-	System.out.println(x);
-	*/
+        for (int i = 0; i < 10; i++){
+	    x.add("" + i);
+	    System.out.println(x);
+	}
+	for (int i = 9; i >= 0; i--){
+	    x.remove();
+	    System.out.println(x);
+	}
+	
+	
+	
     }
 }
