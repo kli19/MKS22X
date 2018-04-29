@@ -28,9 +28,13 @@ public class MyHeap{
 
     public void pushUp(int index){
 	int parent = (index-1)/2;
+	//System.out.println("parent: " + data[parent]);
+	//System.out.println("current: " + data[index]);
 	if (isMax && data[index].compareTo(data[parent]) > 0 ||
-	    !isMax && data[index].compareTo(data[parent]) < 0){	    
-	    swap(index, parent);
+	    !isMax && data[index].compareTo(data[parent]) < 0){
+	    //System.out.println("will push up");
+	    //System.out.println("swapping " + data[index] + " and " +data[parent]);
+	    swap(index, parent);	    
 	    pushUp(parent);
 	}
     }
@@ -38,12 +42,19 @@ public class MyHeap{
     public void pushDown(int index){
 	int L = index*2+1;
 	int R = index*2+2;
-	if (L < size()&& data[index].compareTo(data[L]) < 0 && (R >= size() || data[R].compareTo(data[L]) <= 0)){
-	    swap(index, L);
-	    pushDown(L);	    
+	if (isMax && L < size()&& data[index].compareTo(data[L]) < 0 && (R >= size() || data[R].compareTo(data[L]) <= 0) ||
+	    !isMax && L < size()&& data[index].compareTo(data[L]) > 0 && (R >= size() || data[R].compareTo(data[L]) >= 0)
+	    ){
+	    //System.out.println("swapping " + data[index] + " and " + data[L]);
+	    swap(index, L);	    
+	    pushDown(L);
+	   
 	}
 
-	else if (R < size() && data[index].compareTo(data[R]) < 0 && (L >= size() || data[L].compareTo(data[R]) < 0)){
+	else if (isMax && R < size() && data[index].compareTo(data[R]) < 0 && (L >= size() || data[L].compareTo(data[R]) <= 0) ||
+		 !isMax && R < size()&& data[index].compareTo(data[R]) > 0 && (L >= size() || data[R].compareTo(data[L]) >= 0)
+		 ){
+	    //System.out.println("swapping " + data[index] + " and " + data[R]);
 	    swap(index, R);
 	    pushDown(R);			     	    
 	}
@@ -55,10 +66,10 @@ public class MyHeap{
 	    resize();
 	}
 
-	data[size()] = s;
+	data[size()] = s;	
 	pushUp(size());
-	
 	length++;
+	
     }
 
     public String remove(){
@@ -93,19 +104,23 @@ public class MyHeap{
 
 
     public static void main(String[]args){
+	/*
         MyHeap x = new MyHeap();
 	
 	for(int i = 0; i < 10; i++){
-	    int temp = (int)(Math.random() * 100);
+	    int temp = (int)(Math.random() * 10);
 	    x.add("" + temp);
 	    System.out.println(x);
+	    //System.out.println("------------------------------------");
 	}
 
 	for(int i = x.size(); i>0; i--){
 	    x.remove();
 	    System.out.println(x);
-	    System.out.println("done");
+	    
+	    //System.out.println("done");
 	}
+	*/
 		
     }
 }
