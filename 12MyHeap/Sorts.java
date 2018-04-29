@@ -3,9 +3,9 @@ public class Sorts{
 
     public static void main(String[]args){
 	/*
-	int[]data = new int[1000];
-	int[]correctData = new int[1000];
-	for(int i = 0; i < 1000; i++){
+	int[]data = new int[10000];
+	int[]correctData = new int[10000];
+	for(int i = 0; i < 10000; i++){
 	    int temp = (int)(Math.random() * 1000);
 	    data[i] = temp;
 	    correctData[i] = temp;
@@ -16,8 +16,8 @@ public class Sorts{
 
 	boolean hasError = false;
 	int index = 0;
-	for(Integer x: data){
-	    if(!(x.equals(correctData[index]))){
+	for(int x: data){
+	    if(!(x == correctData[index])){
 		System.out.println("THERE IS AN ERROR");
 		System.out.println("Index of error: " + index);
 		hasError = true;
@@ -80,7 +80,7 @@ public class Sorts{
 	    pushDown(data, L);	    
 	}
 
-	if (R < data.length && data[index] < data[R] && (L >= data.length || data[L] < data[R])){
+	else if (R < data.length && data[index] < data[R] && (L >= data.length || data[L] < data[R])){
 	    swap(data, index, R);
 	    pushDown(data, R);			     	    
 	}
