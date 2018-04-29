@@ -53,7 +53,7 @@ public class MyHeap <T extends Comparable<T>> {
 	}
 
 	else if (isMax && R < size() && data[index].compareTo(data[R]) < 0 && (L >= size() || data[L].compareTo(data[R]) <= 0) ||
-		 !isMax && R < size()&& data[index].compareTo(data[R]) > 0 && (L >= size() || data[R].compareTo(data[L]) >= 0)
+		 !isMax && R < size()&& data[index].compareTo(data[R]) > 0 && (L >= size() || data[L].compareTo(data[R]) >= 0)
 		 ){
 	    //System.out.println("swapping " + data[index] + " and " + data[R]);
 	    swap(index, R);
@@ -108,12 +108,12 @@ public class MyHeap <T extends Comparable<T>> {
 
 
     public static void main(String[]args){
-	
-        MyHeap<String>  x = new MyHeap<>();
+	/*
+        MyHeap<Integer>  x = new MyHeap<>();
 	
 	for(int i = 0; i < 10; i++){
 	    int temp = (int)(Math.random() * 10);
-	    x.add("" + temp);
+	    x.add( temp);
 	    System.out.println(x);
 	    //System.out.println("------------------------------------");
 	}
@@ -124,6 +124,7 @@ public class MyHeap <T extends Comparable<T>> {
 	    
 	    //System.out.println("done");
 	}
+	*/
 	
 		
     }
