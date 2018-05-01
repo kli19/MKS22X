@@ -1,12 +1,12 @@
 public class RunningMedians{
 
-    private MyHeap<Integer> small;
-    private MyHeap<Integer> large;
+    private MyHeap<Double> small;
+    private MyHeap<Double> large;
 
     @SuppressWarnings("unchecked")
     public RunningMedians(){
-	small = new MyHeap();
-	large = new MyHeap(false);
+	small = new MyHeap<>();
+	large = new MyHeap<>(false);
     }
 
     public MyHeap getSmall(){
@@ -17,7 +17,7 @@ public class RunningMedians{
 	return large;
     }
 
-    public void add(Integer n){
+    public void add(double n){
 	if (small.size() == 0 || n < small.peek()){
 	    small.add(n);
 	}
@@ -43,11 +43,11 @@ public class RunningMedians{
 	    return large.peek();
 	}
 	
-	return ((double)small.peek()+(double)large.peek()) / 2;	
+	return (small.peek()+large.peek()) / 2;	
     }
 
     public static void main(String[]args){
-	/*
+	
 	RunningMedians x = new RunningMedians();
 
 	x.add(1);
@@ -59,7 +59,7 @@ public class RunningMedians{
 	System.out.println("small: " + x.getSmall());
 	System.out.println("large: " + x.getLarge());
 	System.out.println("median: " + x.getMedian());
-	*/
+	
     }
     
 }
