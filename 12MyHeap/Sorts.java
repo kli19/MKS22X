@@ -2,7 +2,7 @@ import java.util.*;
 public class Sorts{
 
     public static void main(String[]args){
-	
+	/*
 	int[]data = new int[10000];
 	int[]correctData = new int[10000];
 	for(int i = 0; i < 10000; i++){
@@ -12,7 +12,7 @@ public class Sorts{
 	}
 	
 	Arrays.sort(correctData);
-	HeapSort(data);
+	heapsort(data);
 
 	boolean hasError = false;
 	int index = 0;
@@ -27,6 +27,7 @@ public class Sorts{
 	if (!hasError){
 	    System.out.println("YAY");
 	}
+*/
 	
 	/*
 	int[]data = new int[10];
@@ -40,9 +41,10 @@ public class Sorts{
 	System.out.println(toString(data));
 	*/
 	
+	
     }
 
-    public static void HeapSort(int[]data){
+    public static void heapsort(int[]data){
 
 	Heapify(data);
 	//System.out.println(toString(data));
