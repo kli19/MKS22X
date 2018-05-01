@@ -2,7 +2,7 @@ import java.util.*;
 public class Sorts{
 
     public static void main(String[]args){
-	/*
+	
 	int[]data = new int[10000];
 	int[]correctData = new int[10000];
 	for(int i = 0; i < 10000; i++){
@@ -27,7 +27,7 @@ public class Sorts{
 	if (!hasError){
 	    System.out.println("YAY");
 	}
-	*/
+	
 	/*
 	int[]data = new int[10];
 	for(int i = 0; i < data.length; i++){
@@ -56,7 +56,7 @@ public class Sorts{
 	    //System.out.println("to swap with " + toSwap + "\n");
 
 	    swap(data, 0, length);
-	    pushDownX(data, 0, length);
+	    pushDown(data, 0, length);
 	    length--;
 	    
 	    //System.out.println(toString(data));
@@ -66,39 +66,24 @@ public class Sorts{
     public static int remove(int[]data, int end){
 	int s = data[0];
 	swap(data, 0, end);	
-	pushDownX(data, 0, end);	
+	pushDown(data, 0, end);	
 	return s;
     } 
 
 
-    public static void pushDown(int[]data, int index){
-	int L = index*2+1;	
-	int R = index*2+2;
- 
-	if (L < data.length && data[index] < data[L] && (R >= data.length || data[R] <= data[L])){
-	    swap(data, index, L);
-	    pushDown(data, L);	    
-	}
 
-	else if (R < data.length && data[index] < data[R] && (L >= data.length || data[L] < data[R])){
-	    swap(data, index, R);
-	    pushDown(data, R);			     	    
-	}
-	
-    }
-
-    public static void pushDownX(int[]data, int index, int end){
+    public static void pushDown(int[]data, int index, int end){
 	int L = index*2+1;	
 	int R = index*2+2;
  
 	if (L < end && data[index] < data[L] && (R >= end || data[R] <= data[L])){
 	    swap(data, index, L);
-	    pushDownX(data, L, end);	    
+	    pushDown(data, L, end);	    
 	}
 
 	if (R < end && data[index] < data[R] && (L >= end || data[L] < data[R])){
 	    swap(data, index, R);
-	    pushDownX(data, R, end);			     	    
+	    pushDown(data, R, end);			     	    
 	}
 	
     }
@@ -108,7 +93,7 @@ public class Sorts{
 
     public static void Heapify(int[]data){
 	for (int i = data.length-1; i >= 0; i--){
-	    pushDown(data, i);
+	    pushDown(data, i, data.length);
 	}
     }
     
