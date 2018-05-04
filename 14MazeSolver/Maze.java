@@ -13,6 +13,10 @@ public class Maze{
 	String str = "";
 	int col = 0;
 	int row = 0;
+	int startX = 0;
+	int startY = 0;
+	int endX = 0;
+	int endY = 0;
 
 	File text = new File(filename);
 	Scanner inputFile = new Scanner(text);
@@ -32,9 +36,13 @@ public class Maze{
 	for (int r = 0; r < row; r++){
 	    for (int c = 0; c < col; c++){
 		if (str.charAt(charNum)=='S'){
+		    startX = c;
+		    startY = r;
 		    SCount++;
 		}
 		if (str.charAt(charNum)=='E'){
+		    startY = c;
+		    startX = r;
 		    ECount++;
 		}
 
@@ -45,6 +53,9 @@ public class Maze{
 		charNum++;
 	    }
 	}
+
+	start = new Location(startX, startY, null);
+	end = new Location(endX, endY, null);
 	if (SCount != 1 || ECount != 1){
 	    throw new IllegalArgumentException("Needs exactly one S and one E");
 }
@@ -79,15 +90,21 @@ public class Maze{
     // adjacent to n and  not visited
     // all the Locations in this list should have their previous set to n.
     public Location[] getNeighbors(Location n){
-	return null;
+	Location[] l = new Location[4];
+	int[][]moves = {{1,0}, {0,1}, {-1, 0}, {0, -1}};
+	int index = 0;
+	for (int i[]:moves){
+	    
+	}
+	return l;
     }
 
     public Location getStart(){
-	return null;
+	return start;
     }
 
     public Location getEnd(){
-	return null;
+	return end;
     }
 
 

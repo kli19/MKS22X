@@ -7,4 +7,16 @@ public class Location{
 	y = _y;
 	previous = prev;
     }
+
+    public int getX(){
+	return x;
+    }
+
+    public int getY(){
+	return y;
+    }
+
+    public void setPrev(Location prev){
+	previous = prev;
+    }
 }
