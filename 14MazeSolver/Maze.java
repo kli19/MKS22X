@@ -168,9 +168,5 @@ public class Maze{
 	return ans;
     }
 
-    public static void main(String[]args){
-	Maze x = new Maze("test.txt");
-	System.out.println(x);
-	
-    }
+
 }
