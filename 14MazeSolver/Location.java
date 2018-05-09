@@ -19,4 +19,8 @@ public class Location{
     public void setPrev(Location prev){
 	previous = prev;
     }
+
+    public Location getPrev(Location prev){
+        return previous;
+    }
 }
