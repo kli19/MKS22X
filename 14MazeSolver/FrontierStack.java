@@ -1,3 +1,4 @@
+import java.util.*;
 public class FrontierStack implements Frontier{
 
     private Stack<Location> data;

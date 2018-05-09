@@ -23,4 +23,8 @@ public class Location{
     public Location getPrev(Location prev){
         return previous;
     }
+
+    public boolean equals(Location other){
+	return x == other.getX() && y == other.getY();
+    }
 }

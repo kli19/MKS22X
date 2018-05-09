@@ -1,3 +1,4 @@
+import java.util.*;
 public class FrontierQueue implements Frontier{
 
     private LinkedList<Location> data;
