@@ -15,15 +15,19 @@ public class MazeSolver{
 	    frontier = new FrontierQueue();
 	}
 
-	else{
+	else if (mode == 1){
 	    frontier = new FrontierStack();
+	}
+
+	else{
+	    frontier = new FrontierPriorityQueue();
 	}
 
 	frontier.add(maze.getStart());
 	Location end = maze.getEnd();
 
 	while(frontier.hasNext()){	    
-	    
+	    //System.out.println(maze);
 	    Location next = frontier.next();
 	    if(next.equals(end)){
 		return true;
@@ -56,7 +60,7 @@ public class MazeSolver{
 
     public static void main(String[]args){
 	MazeSolver x = new MazeSolver("test.txt");
-	System.out.println(x.solve(1));
+	System.out.println(x.solve(2));
 	
 	
     }
