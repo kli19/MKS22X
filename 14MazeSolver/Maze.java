@@ -13,7 +13,7 @@ public class Maze{
 	    (maze[r][c] == ' ' || maze[r][c] == 'E');
     }
 
-    public Location[] getNeighbors(Location L){
+    public Location[] getNeighbors(Location L, Boolean aStar){
     	Location[] l = new Location[4];
 	int[][]moves = {{1,0}, {0,1}, {-1, 0}, {0, -1}};
 	int index = 0;
@@ -22,7 +22,15 @@ public class Maze{
 	    int newY = L.getY()+i[1];
 	    if (isValid(newX, newY)){
 		int distToEnd = Math.abs(end.getX()-newX) + Math.abs(end.getY()-newY);
-		    l[index] = new Location(L.getX()+i[0], L.getY()+i[1], L, distToEnd);
+		int distToStart = Math.abs(start.getX()-newX) + Math.abs(start.getY()-newY);
+		int priority = 0;
+		if (aStar){
+		    priority = distToEnd + distToStart;
+		}
+		else{
+		    priority = distToEnd;
+		}
+		l[index] = new Location(L.getX()+i[0], L.getY()+i[1], L, priority);
 	    }
 	    index++;
 	}
