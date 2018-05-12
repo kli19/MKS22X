@@ -1,6 +1,8 @@
 public class MazeSolver{
     private Maze maze;
     private Frontier frontier;
+    private Boolean aStar;
+    
 
     public MazeSolver(String mazeText){
 	maze = new Maze(mazeText);
@@ -11,6 +13,7 @@ public class MazeSolver{
     }
 
     public boolean solve(int mode){
+	aStar = false;
 	if(mode == 0){
 	    frontier = new FrontierQueue();
 	}
@@ -19,10 +22,14 @@ public class MazeSolver{
 	    frontier = new FrontierStack();
 	}
 
-	else{
+	else if (mode == 2){
 	    frontier = new FrontierPriorityQueue();
 	}
 
+	else {
+	    frontier = new FrontierPriorityQueue();
+	    aStar = true;
+	}
 	frontier.add(maze.getStart());
 	Location end = maze.getEnd();
 
@@ -42,6 +49,22 @@ public class MazeSolver{
 	    for (Location L: neighbors){
 		if (L != null){
 		    if (L.equals(end)){
+			while (!next.equals(maze.getStart())){
+			    //System.out.println(maze);
+
+			    //System.out.println(next.getX() + ", " + next.getY());
+			    //System.out.println(maze.getStart().getX() + ", " + maze.getStart().getY());
+			    
+			    maze.set(next.getX(), next.getY(), '@');
+			    next = next.getPrev();
+
+			    //System.out.println(maze);
+			    
+			    //System.out.println("After updating next");
+			    //System.out.println(next.getX() + ", " + next.getY());
+			    //System.out.println(maze.getStart().getX() + ", " + maze.getStart().getY());
+			    //System.out.println("===========================================================");
+			}
 			return true;
 		    }
 		    frontier.add(L);
@@ -60,7 +83,7 @@ public class MazeSolver{
 
     public static void main(String[]args){
 	MazeSolver x = new MazeSolver("test.txt");
-	System.out.println(x.solve(2));
+	System.out.println(x.solve(0));
 	
 	
     }
