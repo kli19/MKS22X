@@ -10,7 +10,7 @@ public class Location implements Comparable<Location>{
     }
 
     public int compareTo(Location other){
-	return  other.getPriority() - getPriority();
+	return  getPriority() - other.getPriority();
     }
 
     public int getX(){

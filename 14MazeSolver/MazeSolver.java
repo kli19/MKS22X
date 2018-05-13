@@ -34,11 +34,8 @@ public class MazeSolver{
 	Location end = maze.getEnd();
 
 	while(frontier.hasNext()){	    
-	    //System.out.println(maze);
+	    System.out.println(maze);
 	    Location next = frontier.next();
-	    if(next.equals(end)){
-		return true;
-	    }
 
 	    if(!next.equals(maze.getStart())){
 		maze.set(next.getX(), next.getY(), '.');
@@ -67,7 +64,7 @@ public class MazeSolver{
 			    //System.out.println("===========================================================");
 			    //aCount++;
 			}
-			//System.out.println(maze);
+			System.out.println(maze);
 			//System.out.println("# @s: " + aCount);
 			
 			
@@ -88,10 +85,10 @@ public class MazeSolver{
     }
 
     public static void main(String[]args){
-	/*
+	
 	MazeSolver x = new MazeSolver("test.txt");
 	System.out.println(x.solve(3));
-	*/
+	
 	
 	
     }
