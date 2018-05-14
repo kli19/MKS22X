@@ -22,15 +22,15 @@ public class Maze{
 	    int newY = L.getY()+i[1];
 	    if (isValid(newX, newY)){
 		int distToEnd = Math.abs(end.getX()-newX) + Math.abs(end.getY()-newY);
-		int distToStart = Math.abs(start.getX()-newX) + Math.abs(start.getY()-newY);
+		
 		int priority = 0;
 		if (aStar){
-		    priority = distToEnd + distToStart;
+		    priority = distToEnd + L.getStepsFromStart();
 		}
 		else{
 		    priority = distToEnd;
 		}
-		l[index] = new Location(L.getX()+i[0], L.getY()+i[1], L, priority);
+		l[index] = new Location(L.getX()+i[0], L.getY()+i[1], L, priority, L.getStepsFromStart() +1);
 	    }
 	    index++;
 	}
@@ -108,8 +108,8 @@ public class Maze{
 	  The start/end Locations may need more information later when we add
 	  other kinds of frontiers!
 	*/
-	end = new Location(endr,endc,null,0);
-	start = new Location(startr,startc,null,Math.abs(endr-startr) + Math.abs(endc-startc));
+	end = new Location(endr,endc,null,0,0);
+	start = new Location(startr,startc,null,Math.abs(endr-startr) + Math.abs(endc-startc), 0);
     }
 
     public String toStringColor(){
