@@ -6,14 +6,19 @@ public class Maze{
     private static final String HIDE_CURSOR =  "\033[?25l";
     private static final String SHOW_CURSOR =  "\033[?25h";
     Location start,end;
+    private boolean aStar = false;
     private char[][]maze;
+
+    public void setAStar(boolean a){
+	aStar = a;
+    }
 
     private boolean isValid (int r, int c){
 	return r>=0 && r<maze.length && c>=0 && c<maze[0].length &&
 	    (maze[r][c] == ' ' || maze[r][c] == 'E');
     }
 
-    public Location[] getNeighbors(Location L, Boolean aStar){
+    public Location[] getNeighbors(Location L){
     	Location[] l = new Location[4];
 	int[][]moves = {{1,0}, {0,1}, {-1, 0}, {0, -1}};
 	int index = 0;

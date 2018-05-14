@@ -28,7 +28,7 @@ public class MazeSolver{
 
 	else {
 	    frontier = new FrontierPriorityQueue();
-	    aStar = true;
+	    maze.setAStar(true);
 	}
 	frontier.add(maze.getStart());
 	Location end = maze.getEnd();
@@ -41,7 +41,7 @@ public class MazeSolver{
 		maze.set(next.getX(), next.getY(), '.');
 	    }
 	    
-	    Location[] neighbors = maze.getNeighbors(next, aStar);
+	    Location[] neighbors = maze.getNeighbors(next);
 
 	    for (Location L: neighbors){
 		if (L != null){
@@ -78,7 +78,7 @@ public class MazeSolver{
     public static void main(String[]args){
 	/*
 	MazeSolver x = new MazeSolver("test.txt");
-	System.out.println(x.solve(1));
+	System.out.println(x.solve(3));
 	*/
 	
 	
