@@ -1,10 +1,10 @@
-public class RunningMedians{
+public class RunningMedian{
 
     private MyHeap<Double> small;
     private MyHeap<Double> large;
 
     @SuppressWarnings("unchecked")
-    public RunningMedians(){
+    public RunningMedian(){
 	small = new MyHeap<>();
 	large = new MyHeap<>(false);
     }
@@ -48,7 +48,7 @@ public class RunningMedians{
 
     public static void main(String[]args){
 	
-	RunningMedians x = new RunningMedians();
+	RunningMedian x = new RunningMedian();
 
 	x.add(1);
 	x.add(2);
