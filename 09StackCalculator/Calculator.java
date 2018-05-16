@@ -4,6 +4,12 @@ public class Calculator{
 	@SuppressWarnings("unchecked")
 	    Stack<String> stack = new Stack();
 	String temp = "";
+
+	String x = expression.trim();
+	if (x.indexOf(" ") == -1){
+	    return Double.parseDouble(expression);
+	}
+	
 	for (int i = 0; i < expression.length(); i++){
 	    if(expression.charAt(i) == ' '){
 		if (temp.equals("+") || temp.equals("-") || temp.equals("*") || temp.equals("/") || temp.equals("%")){
@@ -50,13 +56,18 @@ public class Calculator{
     }
 
 
-    /*
+    
     public static void main(String[] args) {
+	/*
+	System.out.println(eval(" 0"));
+	System.out.println(eval(" 0 "));
+	System.out.println(eval("0 "));
 	System.out.println(eval("6 6 +"));
 	System.out.println(eval("11 3 - 4 + 2.5 *"));
 	System.out.println(eval("8 2 + 99 9 - * 2 + 9 -"));
+	*/
     }
-   */
+   
     
 
 }
